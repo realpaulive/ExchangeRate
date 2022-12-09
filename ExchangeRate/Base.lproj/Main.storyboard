@@ -28,61 +28,12 @@
                                     <color systemColor="tertiaryLabelColor"/>
                                 </hierarchicalColors>
                             </imageReference>
-                            <connections>
-                                <segue destination="0PS-23-1Ge" kind="showDetail" id="rEb-xf-NK5"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1773.8461538461538" y="-333.41232227488149"/>
-        </scene>
-        <!--Prefrences View Controller-->
-        <scene sceneID="TvH-Ks-RTN">
-            <objects>
-                <viewController id="0PS-23-1Ge" customClass="PrefrencesViewController" customModule="ExchangeRate" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9N3-Bs-t4J">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jcp-Jc-AAo">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="56"/>
-                                <items>
-                                    <navigationItem title="Prefrences" id="9Xy-we-kP9">
-                                        <barButtonItem key="rightBarButtonItem" title="Done" id="oW3-44-i2c">
-                                            <color key="tintColor" systemColor="systemPinkColor"/>
-                                            <connections>
-                                                <action selector="doneBarButton:" destination="0PS-23-1Ge" id="gHp-XT-eUx"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="HUA-s7-ucQ">
-                                <rect key="frame" x="0.0" y="56" width="390" height="731"/>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="PjM-Iq-vSJ"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="jcp-Jc-AAo" secondAttribute="trailing" id="1lt-oY-BYD"/>
-                            <constraint firstItem="HUA-s7-ucQ" firstAttribute="width" secondItem="jcp-Jc-AAo" secondAttribute="width" id="87e-H5-DKl"/>
-                            <constraint firstItem="HUA-s7-ucQ" firstAttribute="leading" secondItem="PjM-Iq-vSJ" secondAttribute="leading" id="B0f-tE-an4"/>
-                            <constraint firstItem="jcp-Jc-AAo" firstAttribute="leading" secondItem="9N3-Bs-t4J" secondAttribute="leading" id="Fdh-4u-bEJ"/>
-                            <constraint firstItem="HUA-s7-ucQ" firstAttribute="bottom" secondItem="PjM-Iq-vSJ" secondAttribute="bottom" id="GBo-2F-cqR"/>
-                            <constraint firstItem="HUA-s7-ucQ" firstAttribute="top" secondItem="jcp-Jc-AAo" secondAttribute="bottom" id="eA8-x1-mX3"/>
-                            <constraint firstItem="HUA-s7-ucQ" firstAttribute="trailing" secondItem="PjM-Iq-vSJ" secondAttribute="trailing" id="qVc-lu-Non"/>
-                            <constraint firstItem="jcp-Jc-AAo" firstAttribute="top" secondItem="9N3-Bs-t4J" secondAttribute="top" id="vzl-qJ-aXR"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="tableViewForFrame" destination="HUA-s7-ucQ" id="8OD-dE-lC7"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LDf-vq-hIR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2533.8461538461538" y="-333.41232227488149"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="YW7-66-tK4">
@@ -104,22 +55,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DF2-X0-bQ0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="116.92307692307692" y="-2.1327014218009479"/>
-        </scene>
-        <!--Currencies-->
-        <scene sceneID="NK9-ze-Cwf">
-            <objects>
-                <viewController id="5P1-m3-HXS" customClass="CurrenciesViewController" customModule="ExchangeRate" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="vTP-bB-SFT">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="eC1-lc-Ovp"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Currencies" id="MmM-jc-5KF"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oq9-lT-heA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1774" y="385"/>
         </scene>
         <!--Converter-->
         <scene sceneID="5a3-wx-Dvr">
@@ -178,6 +113,7 @@
         <!--Navigation Controller-->
         <scene sceneID="09F-TK-KXv">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ALz-Jh-4IE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Eop-2A-J7y" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" id="eEU-ck-09p">
                         <imageReference key="image" image="dollarsign.circle.fill" catalog="system" symbolScale="large" renderingMode="hierarchical-single">
@@ -195,12 +131,40 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="5P1-m3-HXS" kind="relationship" relationship="rootViewController" id="yDB-N3-gI1"/>
+                        <segue destination="JJ2-8o-37I" kind="relationship" relationship="rootViewController" id="9Ee-jy-eAM"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ALz-Jh-4IE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1008" y="385"/>
+        </scene>
+        <!--Currencies-->
+        <scene sceneID="Iej-bb-vNF">
+            <objects>
+                <tableViewController id="JJ2-8o-37I" customClass="CurrenciesViewController" customModule="ExchangeRate" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="FLm-sk-UQS">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="mil-84-YT2">
+                                <rect key="frame" x="0.0" y="50" width="390" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mil-84-YT2" id="BDQ-SP-eOS">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="JJ2-8o-37I" id="6Vr-CX-iNo"/>
+                            <outlet property="delegate" destination="JJ2-8o-37I" id="3H4-JF-BNj"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Currencies" id="EVm-AY-Pne"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F8w-OF-Qat" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1774" y="385"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7s2-eK-D6w">
