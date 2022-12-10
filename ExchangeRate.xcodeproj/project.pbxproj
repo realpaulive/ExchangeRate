@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		716AE5E92943AC2300D656C5 /* Valutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716AE5E82943AC2300D656C5 /* Valutes.swift */; };
+		716AE5ED2943DB1300D656C5 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716AE5EC2943DB1300D656C5 /* NetworkService.swift */; };
+		716AE5EF2943DCAB00D656C5 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716AE5EE2943DCAB00D656C5 /* Response.swift */; };
+		716AE5F22943F26E00D656C5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716AE5F12943F26E00D656C5 /* Constants.swift */; };
 		71B23CA6294298FB00DC1888 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B23CA5294298FB00DC1888 /* AppDelegate.swift */; };
 		71B23CA8294298FB00DC1888 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B23CA7294298FB00DC1888 /* SceneDelegate.swift */; };
 		71B23CAA294298FB00DC1888 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B23CA9294298FB00DC1888 /* FavoritesViewController.swift */; };
@@ -16,10 +20,13 @@
 		71B23CB5294298FF00DC1888 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71B23CB3294298FF00DC1888 /* LaunchScreen.storyboard */; };
 		71B23CBF29429A7200DC1888 /* CurrenciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B23CBE29429A7200DC1888 /* CurrenciesViewController.swift */; };
 		71C9FAA22942B46F00DF203C /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C9FAA12942B46F00DF203C /* ConverterViewController.swift */; };
-		71C9FAA42943401500DF203C /* CurranciesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C9FAA32943401500DF203C /* CurranciesData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		716AE5E82943AC2300D656C5 /* Valutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Valutes.swift; sourceTree = "<group>"; };
+		716AE5EC2943DB1300D656C5 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		716AE5EE2943DCAB00D656C5 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		716AE5F12943F26E00D656C5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		71B23CA2294298FB00DC1888 /* ExchangeRate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeRate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71B23CA5294298FB00DC1888 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71B23CA7294298FB00DC1888 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,7 +38,6 @@
 		71B23CB6294298FF00DC1888 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71B23CBE29429A7200DC1888 /* CurrenciesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesViewController.swift; sourceTree = "<group>"; };
 		71C9FAA12942B46F00DF203C /* ConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewController.swift; sourceTree = "<group>"; };
-		71C9FAA32943401500DF203C /* CurranciesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurranciesData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		716AE5F02943E7B300D656C5 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				716AE5EC2943DB1300D656C5 /* NetworkService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		71B23C99294298FB00DC1888 = {
 			isa = PBXGroup;
 			children = (
@@ -66,7 +80,9 @@
 			children = (
 				71B23CA5294298FB00DC1888 /* AppDelegate.swift */,
 				71B23CA7294298FB00DC1888 /* SceneDelegate.swift */,
+				716AE5F12943F26E00D656C5 /* Constants.swift */,
 				71C9FAA52943407500DF203C /* ViewControllers */,
+				716AE5F02943E7B300D656C5 /* Networking */,
 				71C9FAA62943408600DF203C /* Models */,
 				71B23CAB294298FB00DC1888 /* Main.storyboard */,
 				71B23CB1294298FF00DC1888 /* Assets.xcassets */,
@@ -90,7 +106,8 @@
 		71C9FAA62943408600DF203C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				71C9FAA32943401500DF203C /* CurranciesData.swift */,
+				716AE5E82943AC2300D656C5 /* Valutes.swift */,
+				716AE5EE2943DCAB00D656C5 /* Response.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -166,10 +183,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71C9FAA42943401500DF203C /* CurranciesData.swift in Sources */,
+				716AE5ED2943DB1300D656C5 /* NetworkService.swift in Sources */,
+				716AE5E92943AC2300D656C5 /* Valutes.swift in Sources */,
 				71B23CBF29429A7200DC1888 /* CurrenciesViewController.swift in Sources */,
 				71B23CB0294298FB00DC1888 /* ExchangeRate.xcdatamodeld in Sources */,
+				716AE5EF2943DCAB00D656C5 /* Response.swift in Sources */,
 				71B23CAA294298FB00DC1888 /* FavoritesViewController.swift in Sources */,
+				716AE5F22943F26E00D656C5 /* Constants.swift in Sources */,
 				71B23CA6294298FB00DC1888 /* AppDelegate.swift in Sources */,
 				71B23CA8294298FB00DC1888 /* SceneDelegate.swift in Sources */,
 				71C9FAA22942B46F00DF203C /* ConverterViewController.swift in Sources */,

@@ -1,23 +1,18 @@
 //
-//  CurranciesData.swift
+//  JSONResponse.swift
 //  ExchangeRate
 //
-//  Created by Paul Ive on 09.12.22.
+//  Created by Paul Ive on 10.12.22.
 //
 
 import Foundation
 
 // MARK: - ExchageCurrancies
-struct ExchageCurrancies: Codable {
-    let date, previousDate: Date
-    let previousURL: String
-    let timestamp: Date
+struct Response: Codable {
+    let timestamp: String
     let valute: [String: Valute]
-
+    
     enum CodingKeys: String, CodingKey {
-        case date = "Date"
-        case previousDate = "PreviousDate"
-        case previousURL = "PreviousURL"
         case timestamp = "Timestamp"
         case valute = "Valute"
     }
@@ -29,7 +24,7 @@ struct Valute: Codable {
     let nominal: Int
     let name: String
     let value, previous: Double
-
+    
     enum CodingKeys: String, CodingKey {
         case id = "ID"
         case numCode = "NumCode"
