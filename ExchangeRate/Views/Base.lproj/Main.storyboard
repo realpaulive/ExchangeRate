@@ -233,20 +233,127 @@
             </objects>
             <point key="canvasLocation" x="1773.8461538461538" y="384.59715639810423"/>
         </scene>
-        <!--View Controller-->
+        <!--Currancy Sheet View Controller-->
         <scene sceneID="Xac-VK-Bta">
             <objects>
-                <viewController id="bfs-53-jAg" sceneMemberID="viewController">
+                <viewController id="bfs-53-jAg" customClass="CurrancySheetViewController" customModule="ExchangeRate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NSG-UP-dCV">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IvQ-bI-fbY">
+                                <rect key="frame" x="16" y="90" width="80" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="D5S-Jh-yo2"/>
+                                    <constraint firstAttribute="height" constant="60" id="JNc-0l-Qdx"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="1 Фунт стерлингов Соединенного королевства " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xp-QQ-RG9">
+                                <rect key="frame" x="108" y="90" width="266" height="14.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="moW-PA-9Rh">
+                                <rect key="frame" x="315" y="112.33333333333333" width="59" height="33.666666666666671"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+1,233 % " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qTV-Hf-uxH">
+                                        <rect key="frame" x="0.0" y="0.0" width="59" height="14.333333333333334"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="+1,233 ₽ " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vhr-yL-8Dt">
+                                        <rect key="frame" x="0.0" y="19.333333333333329" width="59" height="14.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Обновлено 12:12:21Т05.23.34 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cq-lN-PH3">
+                                <rect key="frame" x="16" y="158" width="358" height="12"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="12" id="hFr-Li-Ezz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" systemColor="systemGray2Color"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="62.121 ₽ " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPg-Rw-vBE">
+                                <rect key="frame" x="108" y="112.33333333333333" width="115" height="33.666666666666671"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="HZD-JB-i91">
+                                <rect key="frame" x="16" y="186" width="358" height="34.333333333333343"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rWy-z3-c3B">
+                                        <rect key="frame" x="0.0" y="0.0" width="171" height="34.333333333333336"/>
+                                        <color key="tintColor" systemColor="systemPinkColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="tinted" imagePlacement="trailing" title="В избранное" imagePadding="8" titleAlignment="leading">
+                                            <imageReference key="image" image="flame.fill" catalog="system" symbolScale="medium" renderingMode="template"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Jv-uR-Hed">
+                                        <rect key="frame" x="187" y="0.0" width="171" height="34.333333333333336"/>
+                                        <color key="tintColor" systemColor="systemOrangeColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="tinted" imagePlacement="trailing" title="К сравнению" imagePadding="8" titleAlignment="leading">
+                                            <imageReference key="image" image="plusminus.circle.fill" catalog="system" symbolScale="medium" renderingMode="template"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sl7-SH-WU2">
+                                <rect key="frame" x="16" y="244.33333333333334" width="358" height="268.66666666666663"/>
+                                <mutableString key="text">Фунт сте́рлингов (также фунт стерлингов соединенного королевства, британский фунт; англ. Pound sterling, Pound, British pound) — денежная единица Соединённого Королевства Великобритании и Северной Ирландии (Великобритании), одна из основных резервных валют мира. Фунт стерлингов состоит из 100 пенсов (ед. ч. пенни). Буквенный Код в стандарте ISO 4217 — GBP (от англ. Great Britain Pound), цифровой — 826; Официальный символ — £ (от лат. Libra — либра, эквивалентная фунту). По состоянию на апрель 2019 года, Фунт стерлингов является четвертой наиболее торгуемой валютой в мире и также в межбанковских расчётах[2].</mutableString>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="GMs-dW-SnI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wPg-Rw-vBE" firstAttribute="top" secondItem="9xp-QQ-RG9" secondAttribute="bottom" constant="8" id="1it-7u-cNp"/>
+                            <constraint firstItem="moW-PA-9Rh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wPg-Rw-vBE" secondAttribute="trailing" constant="8" symbolic="YES" id="80d-am-4zM"/>
+                            <constraint firstItem="GMs-dW-SnI" firstAttribute="trailing" secondItem="HZD-JB-i91" secondAttribute="trailing" constant="16" id="AIb-Fb-cqr"/>
+                            <constraint firstItem="Sl7-SH-WU2" firstAttribute="top" secondItem="HZD-JB-i91" secondAttribute="bottom" constant="24" id="Ayd-H9-tkb"/>
+                            <constraint firstItem="3cq-lN-PH3" firstAttribute="leading" secondItem="HZD-JB-i91" secondAttribute="leading" id="B7O-ma-X4G"/>
+                            <constraint firstItem="Sl7-SH-WU2" firstAttribute="top" secondItem="HZD-JB-i91" secondAttribute="bottom" constant="24" id="K9C-Kg-YIk"/>
+                            <constraint firstItem="wPg-Rw-vBE" firstAttribute="leading" secondItem="IvQ-bI-fbY" secondAttribute="trailing" constant="12" id="MDc-0Y-7KA"/>
+                            <constraint firstItem="moW-PA-9Rh" firstAttribute="top" secondItem="9xp-QQ-RG9" secondAttribute="bottom" constant="8" id="MYr-FN-vzj"/>
+                            <constraint firstItem="HZD-JB-i91" firstAttribute="leading" secondItem="GMs-dW-SnI" secondAttribute="leading" constant="16" id="MnI-re-DRY"/>
+                            <constraint firstItem="9xp-QQ-RG9" firstAttribute="top" secondItem="GMs-dW-SnI" secondAttribute="top" constant="43" id="OJw-KS-wKm"/>
+                            <constraint firstItem="9xp-QQ-RG9" firstAttribute="leading" secondItem="IvQ-bI-fbY" secondAttribute="trailing" constant="12" id="Qi3-ha-DxQ"/>
+                            <constraint firstItem="3cq-lN-PH3" firstAttribute="trailing" secondItem="moW-PA-9Rh" secondAttribute="trailing" id="Rct-Qq-7VA"/>
+                            <constraint firstItem="IvQ-bI-fbY" firstAttribute="top" secondItem="GMs-dW-SnI" secondAttribute="top" constant="43" id="caJ-Vm-ewF"/>
+                            <constraint firstItem="GMs-dW-SnI" firstAttribute="trailing" secondItem="Sl7-SH-WU2" secondAttribute="trailing" constant="16" id="cuM-J0-sFv"/>
+                            <constraint firstItem="GMs-dW-SnI" firstAttribute="trailing" secondItem="9xp-QQ-RG9" secondAttribute="trailing" constant="16" id="eC8-Za-YHg"/>
+                            <constraint firstItem="3cq-lN-PH3" firstAttribute="top" secondItem="IvQ-bI-fbY" secondAttribute="bottom" constant="8" symbolic="YES" id="hjA-JF-HvA"/>
+                            <constraint firstItem="HZD-JB-i91" firstAttribute="top" secondItem="3cq-lN-PH3" secondAttribute="bottom" constant="16" id="mil-KU-dig"/>
+                            <constraint firstItem="GMs-dW-SnI" firstAttribute="trailing" secondItem="moW-PA-9Rh" secondAttribute="trailing" constant="16" id="ohw-Tq-co2"/>
+                            <constraint firstItem="Sl7-SH-WU2" firstAttribute="leading" secondItem="GMs-dW-SnI" secondAttribute="leading" constant="16" id="vZn-1v-JaB"/>
+                            <constraint firstItem="IvQ-bI-fbY" firstAttribute="leading" secondItem="GMs-dW-SnI" secondAttribute="leading" constant="16" id="wFm-AU-P3N"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addToFavorite" destination="rWy-z3-c3B" id="JkA-df-o1O"/>
+                        <outlet property="currencyDescriotion" destination="Sl7-SH-WU2" id="9N6-dW-0Pt"/>
+                        <outlet property="currencyImage" destination="IvQ-bI-fbY" id="NF9-D5-azd"/>
+                        <outlet property="currencyName" destination="9xp-QQ-RG9" id="w5v-S7-f1I"/>
+                        <outlet property="currencyValue" destination="wPg-Rw-vBE" id="9Vm-O5-uSX"/>
+                        <outlet property="dailyChangePercent" destination="qTV-Hf-uxH" id="KX9-P6-k09"/>
+                        <outlet property="dailyChangeValue" destination="3cq-lN-PH3" id="PoR-XA-2OS"/>
+                        <outlet property="lastUpdate" destination="3cq-lN-PH3" id="FX9-Tj-LBs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S7g-dn-f7f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2505" y="385"/>
+            <point key="canvasLocation" x="2504.6153846153848" y="384.59715639810423"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7s2-eK-D6w">
@@ -288,6 +395,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

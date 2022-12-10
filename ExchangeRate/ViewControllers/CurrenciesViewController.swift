@@ -9,6 +9,7 @@ import UIKit
 
 class CurrenciesViewController: UITableViewController {
     
+    let sheetVC = CurrancySheetViewController()
     let constants = Constants()
     var response: Response? = nil
     
@@ -76,6 +77,14 @@ class CurrenciesViewController: UITableViewController {
         cell.currencyImage.layer.borderColor = CGColor(gray: 0.1, alpha: 1)
  
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let sheet = sheetVC.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+            sheet.prefersGrabberVisible = true
+        }
+        present(sheetVC, animated: true)
     }
     
 }
