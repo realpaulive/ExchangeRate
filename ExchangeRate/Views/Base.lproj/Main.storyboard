@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Favoritres-->
+        <!--Избранное-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="FavoritesViewController" customModule="ExchangeRate" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,7 +19,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Favoritres" id="OJN-RF-BCZ">
+                    <navigationItem key="navigationItem" title="Избранное" id="OJN-RF-BCZ">
                         <barButtonItem key="rightBarButtonItem" id="piz-7V-b40">
                             <imageReference key="image" image="gear" catalog="system" symbolScale="large" renderingMode="hierarchical-single">
                                 <hierarchicalColors>
@@ -56,7 +56,7 @@
             </objects>
             <point key="canvasLocation" x="116.92307692307692" y="-2.1327014218009479"/>
         </scene>
-        <!--Converter-->
+        <!--Конвертер-->
         <scene sceneID="5a3-wx-Dvr">
             <objects>
                 <viewController id="E5f-Uf-73z" customClass="ConverterViewController" customModule="ExchangeRate" customModuleProvider="target" sceneMemberID="viewController">
@@ -66,7 +66,7 @@
                         <viewLayoutGuide key="safeArea" id="05v-0X-ejR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Converter" id="lw4-1W-jRN">
+                    <navigationItem key="navigationItem" title="Конвертер" id="lw4-1W-jRN">
                         <barButtonItem key="rightBarButtonItem" id="OaE-Xl-Cwr">
                             <imageReference key="image" image="plus" catalog="system" renderingMode="hierarchical-single">
                                 <hierarchicalColors>
@@ -113,7 +113,6 @@
         <!--Navigation Controller-->
         <scene sceneID="09F-TK-KXv">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ALz-Jh-4IE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Eop-2A-J7y" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" id="eEU-ck-09p">
                         <imageReference key="image" image="dollarsign.circle.fill" catalog="system" symbolScale="large" renderingMode="hierarchical-single">
@@ -134,10 +133,11 @@
                         <segue destination="JJ2-8o-37I" kind="relationship" relationship="rootViewController" id="9Ee-jy-eAM"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ALz-Jh-4IE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1008" y="385"/>
         </scene>
-        <!--Currencies-->
+        <!--Все валюты-->
         <scene sceneID="Iej-bb-vNF">
             <objects>
                 <tableViewController id="JJ2-8o-37I" customClass="CurrenciesViewController" customModule="ExchangeRate" customModuleProvider="target" sceneMemberID="viewController">
@@ -146,13 +146,80 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="mil-84-YT2">
-                                <rect key="frame" x="20" y="38" width="350" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="60" id="mil-84-YT2" customClass="CurrencyTableViewCell" customModule="ExchangeRate" customModuleProvider="target">
+                                <rect key="frame" x="20" y="38" width="350" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mil-84-YT2" id="BDQ-SP-eOS">
-                                    <rect key="frame" x="0.0" y="0.0" width="350" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="350" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aq2-O3-k19">
+                                            <rect key="frame" x="15" y="10" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="40" id="3SA-1G-4Ch"/>
+                                                <constraint firstAttribute="height" constant="40" id="xBY-ZI-mJD"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yo0-37-JPx">
+                                            <rect key="frame" x="65" y="11" width="75" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="75" id="KQf-dH-xKn"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="+1.45 %" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDO-as-QYD">
+                                            <rect key="frame" x="265" y="38" width="70" height="12"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="70" id="7Ca-Qu-2LF"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="62.1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0KY-QR-Bi6">
+                                            <rect key="frame" x="195" y="11" width="140" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="140" id="9kr-PE-wcX"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Доллар США" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzb-Ec-dzZ">
+                                            <rect key="frame" x="65" y="38" width="180" height="12"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="180" id="8np-FL-9iq"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="gzb-Ec-dzZ" firstAttribute="top" secondItem="yo0-37-JPx" secondAttribute="bottom" constant="3" id="7oz-Ie-b9a"/>
+                                        <constraint firstAttribute="trailing" secondItem="NDO-as-QYD" secondAttribute="trailing" constant="10" id="FDl-iq-fX5"/>
+                                        <constraint firstItem="0KY-QR-Bi6" firstAttribute="top" secondItem="BDQ-SP-eOS" secondAttribute="top" constant="11" id="LKM-cC-Udx"/>
+                                        <constraint firstItem="gzb-Ec-dzZ" firstAttribute="bottom" secondItem="BDQ-SP-eOS" secondAttribute="bottomMargin" constant="1" id="PfD-rI-deq"/>
+                                        <constraint firstItem="gzb-Ec-dzZ" firstAttribute="leading" secondItem="aq2-O3-k19" secondAttribute="trailing" constant="10" id="SQ0-Yg-0Ra"/>
+                                        <constraint firstItem="NDO-as-QYD" firstAttribute="top" secondItem="0KY-QR-Bi6" secondAttribute="bottom" constant="3" id="b5o-2Q-r65"/>
+                                        <constraint firstItem="yo0-37-JPx" firstAttribute="leading" secondItem="aq2-O3-k19" secondAttribute="trailing" constant="10" id="ew7-tI-pzA"/>
+                                        <constraint firstAttribute="bottom" secondItem="NDO-as-QYD" secondAttribute="bottom" constant="10" id="jVi-QI-hdb"/>
+                                        <constraint firstItem="yo0-37-JPx" firstAttribute="top" secondItem="BDQ-SP-eOS" secondAttribute="topMargin" id="k1T-4k-9A1"/>
+                                        <constraint firstItem="aq2-O3-k19" firstAttribute="leading" secondItem="BDQ-SP-eOS" secondAttribute="leading" constant="15" id="nXc-v1-Pou"/>
+                                        <constraint firstItem="aq2-O3-k19" firstAttribute="top" secondItem="BDQ-SP-eOS" secondAttribute="top" constant="10" id="sfI-ea-nSe"/>
+                                        <constraint firstAttribute="bottom" secondItem="aq2-O3-k19" secondAttribute="bottom" constant="10" id="sqn-5X-am7"/>
+                                        <constraint firstAttribute="trailing" secondItem="0KY-QR-Bi6" secondAttribute="trailing" constant="10" id="zV8-dK-JWZ"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="currancyName" destination="gzb-Ec-dzZ" id="nJE-iR-2Jx"/>
+                                    <outlet property="currancyValue" destination="0KY-QR-Bi6" id="3xe-H6-kec"/>
+                                    <outlet property="currencyImage" destination="aq2-O3-k19" id="9Ud-Te-EFp"/>
+                                    <outlet property="currencyKey" destination="yo0-37-JPx" id="r5Y-zh-fMm"/>
+                                    <outlet property="dailyChange" destination="NDO-as-QYD" id="s9v-Ql-aWE"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -160,11 +227,26 @@
                             <outlet property="delegate" destination="JJ2-8o-37I" id="3H4-JF-BNj"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Currencies" id="EVm-AY-Pne"/>
+                    <navigationItem key="navigationItem" title="Все валюты" id="EVm-AY-Pne"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F8w-OF-Qat" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1774" y="385"/>
+            <point key="canvasLocation" x="1773.8461538461538" y="384.59715639810423"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Xac-VK-Bta">
+            <objects>
+                <viewController id="bfs-53-jAg" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NSG-UP-dCV">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="GMs-dW-SnI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S7g-dn-f7f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2505" y="385"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7s2-eK-D6w">

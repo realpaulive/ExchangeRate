@@ -47,7 +47,7 @@ class CurrenciesViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Last update: \(response?.timestamp ?? "unknown")"
+        return "\(response?.timestamp ?? "нет данных")"
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -55,15 +55,26 @@ class CurrenciesViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CurrencyTableViewCell
         cell.backgroundColor = UIColor(named: "LightGray")
-        
+
         let key = constants.currencyKeys[indexPath.row]
-        let value = Valutes(currentRateData: (response?.valute[key])!)
+        guard let resp = response?.valute[key] else { return cell }
+        let value = Valutes(currentRateData: (resp))
         
-        cell.textLabel?.text = key
-        cell.detailTextLabel?.text = value?.name
         
+
+        cell.currencyKey?.text = key
+        cell.currancyName?.text = { return value!.nominalString + " " + value!.name }()
+        cell.currancyValue.text =  { return value!.currencyValueString + " ₽" }()
+        cell.dailyChange.text = value?.dailyChangeString
+        cell.dailyChange.textColor = UIColor(named: value!.dailyChangeColor)
+        
+        cell.currencyImage.image = UIImage(named: key)
+        cell.currencyImage.layer.cornerRadius = cell.currencyImage.frame.size.height / 4
+        cell.currencyImage.layer.borderWidth = 0.2
+        cell.currencyImage.layer.borderColor = CGColor(gray: 0.1, alpha: 1)
+ 
         return cell
     }
     
