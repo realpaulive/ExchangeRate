@@ -236,7 +236,7 @@
         <!--Currancy Sheet View Controller-->
         <scene sceneID="Xac-VK-Bta">
             <objects>
-                <viewController id="bfs-53-jAg" customClass="CurrancySheetViewController" customModule="ExchangeRate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CurrancySheetView" modalPresentationStyle="pageSheet" id="bfs-53-jAg" customClass="CurrancySheetViewController" customModule="ExchangeRate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NSG-UP-dCV">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -309,7 +309,7 @@
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sl7-SH-WU2">
                                 <rect key="frame" x="16" y="244.33333333333334" width="358" height="268.66666666666663"/>
-                                <mutableString key="text">Фунт сте́рлингов (также фунт стерлингов соединенного королевства, британский фунт; англ. Pound sterling, Pound, British pound) — денежная единица Соединённого Королевства Великобритании и Северной Ирландии (Великобритании), одна из основных резервных валют мира. Фунт стерлингов состоит из 100 пенсов (ед. ч. пенни). Буквенный Код в стандарте ISO 4217 — GBP (от англ. Great Britain Pound), цифровой — 826; Официальный символ — £ (от лат. Libra — либра, эквивалентная фунту). По состоянию на апрель 2019 года, Фунт стерлингов является четвертой наиболее торгуемой валютой в мире и также в межбанковских расчётах[2].</mutableString>
+                                <string key="text">Фунт сте́рлингов (также фунт стерлингов соединенного королевства, британский фунт; англ. Pound sterling, Pound, British pound) — денежная единица Соединённого Королевства Великобритании и Северной Ирландии (Великобритании), одна из основных резервных валют мира. Фунт стерлингов состоит из 100 пенсов (ед. ч. пенни). Буквенный Код в стандарте ISO 4217 — GBP (от англ. Great Britain Pound), цифровой — 826; Официальный символ — £ (от лат. Libra — либра, эквивалентная фунту). По состоянию на апрель 2019 года, Фунт стерлингов является четвертой наиболее торгуемой валютой в мире и также в межбанковских расчётах[2].</string>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
