@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -227,21 +228,28 @@
                             <outlet property="delegate" destination="JJ2-8o-37I" id="3H4-JF-BNj"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Все валюты" id="EVm-AY-Pne"/>
+                    <navigationItem key="navigationItem" title="Все валюты" id="EVm-AY-Pne">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.clockwise" catalog="system" id="BCH-sG-efD">
+                            <color key="tintColor" name="Green"/>
+                            <connections>
+                                <action selector="reloadAction:" destination="JJ2-8o-37I" id="2hf-aQ-Brm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F8w-OF-Qat" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1773.8461538461538" y="384.59715639810423"/>
         </scene>
-        <!--Currancy Sheet View Controller-->
+        <!--Currency Sheet View Controller-->
         <scene sceneID="Xac-VK-Bta">
             <objects>
-                <viewController storyboardIdentifier="CurrancySheetView" modalPresentationStyle="pageSheet" id="bfs-53-jAg" customClass="CurrancySheetViewController" customModule="ExchangeRate" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="NSG-UP-dCV">
+                <viewController storyboardIdentifier="CurrencySheetView" modalPresentationStyle="pageSheet" id="bfs-53-jAg" customClass="CurrencySheetViewController" customModule="ExchangeRate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="SheetView" id="NSG-UP-dCV">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IvQ-bI-fbY">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IvQ-bI-fbY">
                                 <rect key="frame" x="16" y="90" width="80" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="D5S-Jh-yo2"/>
@@ -341,19 +349,20 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="addToFavorite" destination="rWy-z3-c3B" id="JkA-df-o1O"/>
-                        <outlet property="currencyDescriotion" destination="Sl7-SH-WU2" id="9N6-dW-0Pt"/>
-                        <outlet property="currencyImage" destination="IvQ-bI-fbY" id="NF9-D5-azd"/>
-                        <outlet property="currencyName" destination="9xp-QQ-RG9" id="w5v-S7-f1I"/>
-                        <outlet property="currencyValue" destination="wPg-Rw-vBE" id="9Vm-O5-uSX"/>
-                        <outlet property="dailyChangePercent" destination="qTV-Hf-uxH" id="KX9-P6-k09"/>
-                        <outlet property="dailyChangeValue" destination="3cq-lN-PH3" id="PoR-XA-2OS"/>
-                        <outlet property="lastUpdate" destination="3cq-lN-PH3" id="FX9-Tj-LBs"/>
+                        <outlet property="addToConverter" destination="9Jv-uR-Hed" id="gVX-TO-86o"/>
+                        <outlet property="addToFavorite" destination="rWy-z3-c3B" id="4j2-cf-KDM"/>
+                        <outlet property="currencyDescription" destination="Sl7-SH-WU2" id="o13-uO-xxh"/>
+                        <outlet property="currencyImage" destination="IvQ-bI-fbY" id="atZ-tG-W6Y"/>
+                        <outlet property="currencyName" destination="9xp-QQ-RG9" id="DOE-4o-l9p"/>
+                        <outlet property="currencyValue" destination="wPg-Rw-vBE" id="WDU-9S-uqc"/>
+                        <outlet property="dailyChangePercent" destination="qTV-Hf-uxH" id="SeL-3H-1P3"/>
+                        <outlet property="dailyChangeValue" destination="Vhr-yL-8Dt" id="Wh4-6O-CMA"/>
+                        <outlet property="lastUpdate" destination="3cq-lN-PH3" id="bo5-VN-eHN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S7g-dn-f7f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2504.6153846153848" y="384.59715639810423"/>
+            <point key="canvasLocation" x="2734" y="68"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7s2-eK-D6w">
@@ -385,11 +394,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="113" height="128"/>
         <image name="dollarsign.circle.fill" catalog="system" width="128" height="123"/>
         <image name="flame.fill" catalog="system" width="106" height="128"/>
         <image name="gear" catalog="system" width="128" height="122"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plusminus.circle.fill" catalog="system" width="128" height="123"/>
+        <namedColor name="Green">
+            <color red="0.039000000804662704" green="0.87999999523162842" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

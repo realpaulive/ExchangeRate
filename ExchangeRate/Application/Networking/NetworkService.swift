@@ -8,6 +8,7 @@
 import Foundation
 
 class NetworkService {
+    
     func fetchRequest (whithURL urlString: String, completion: @escaping (Result<Response, Error>) -> Void) {
         guard let url = URL(string: urlString) else { return }
         URLSession.shared.dataTask(with: url) { data, response, error in
