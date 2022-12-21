@@ -25,6 +25,7 @@
 		71B23CB5294298FF00DC1888 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71B23CB3294298FF00DC1888 /* LaunchScreen.storyboard */; };
 		71B23CBF29429A7200DC1888 /* CurrenciesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B23CBE29429A7200DC1888 /* CurrenciesVC.swift */; };
 		71C9FAA22942B46F00DF203C /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C9FAA12942B46F00DF203C /* ConverterViewController.swift */; };
+		71EAB7D229539A5200A151A5 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 71EAB7D129539A5200A151A5 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		71B23CB6294298FF00DC1888 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71B23CBE29429A7200DC1888 /* CurrenciesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesVC.swift; sourceTree = "<group>"; };
 		71C9FAA12942B46F00DF203C /* ConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewController.swift; sourceTree = "<group>"; };
+		71EAB7D129539A5200A151A5 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 		713825E8294F4B6F001B9594 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				71EAB7D129539A5200A151A5 /* .gitignore */,
 				716AE5F12943F26E00D656C5 /* Constants.swift */,
 				71B23CB1294298FF00DC1888 /* Assets.xcassets */,
 				71B23CB6294298FF00DC1888 /* Info.plist */,
@@ -289,6 +292,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71EAB7D229539A5200A151A5 /* .gitignore in Resources */,
 				71B23CB5294298FF00DC1888 /* LaunchScreen.storyboard in Resources */,
 				71B23CB2294298FF00DC1888 /* Assets.xcassets in Resources */,
 				71B23CAD294298FB00DC1888 /* Main.storyboard in Resources */,
