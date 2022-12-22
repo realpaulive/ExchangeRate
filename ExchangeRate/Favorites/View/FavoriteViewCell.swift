@@ -7,6 +7,8 @@
 
 import UIKit
 
+//Need to create collectionView
+
 class FavoriteViewCell: UITableViewCell {
 
     @IBOutlet weak var currencyImage: UIImageView!
