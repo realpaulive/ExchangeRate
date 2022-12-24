@@ -11,18 +11,22 @@ class CurrenciesViewController: UITableViewController {
     
     let constants = Constants()
     let searchController = UISearchController(searchResultsController: nil)
-    
-    let updatedCurrencies = UpdateCurrencies.shared
+    var valutes = [String : Valutes]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.reloadData()
+        FetchRequest.currencyRequest { valutes in
+            self.valutes = valutes
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
         setUpSearchBar()
     }
     
     @IBAction func reloadAction(_ sender: UIBarButtonItem) {
-        self.tableView.reloadData()
+        
     }
     
     // MARK: - TableViewFunctions
@@ -37,12 +41,12 @@ class CurrenciesViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "\(updatedCurrencies.data?.timestamp ?? "нет данных")"
+        return "Время"
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return updatedCurrencies.valutes.count
+        return self.valutes.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -50,9 +54,8 @@ class CurrenciesViewController: UITableViewController {
         cell.backgroundColor = UIColor(named: "LightGray")
         
         let key = constants.currencyKeys[indexPath.row]
-        let value = updatedCurrencies.valutes[key]
-        
-        cell.setUpCell(valutes: value!, key: key)
+        guard let value = valutes[key] else { return cell}
+        cell.setUpCell(valutes: value, key: key)
         
         return cell
     }

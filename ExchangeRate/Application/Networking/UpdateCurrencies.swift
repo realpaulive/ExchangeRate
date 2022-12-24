@@ -30,7 +30,7 @@ class UpdateCurrencies {
         }
     }
     
-    func saveCurrencies () {
+    func saveCurrencies (completion: ()->()) {
         updateCurrencies { response in
             let keys = self.constansts.currencyKeys
             guard let response = response else { return }

@@ -11,8 +11,8 @@ class CurrencySheetViewController: UIViewController {
     
     
     let constants = Constants()
-    let updatedCurrensies = UpdateCurrencies.shared
     var key: String = "USD"
+    var valutes = [String : Valutes]()
     
     @IBOutlet weak var currencyName: UILabel!
     @IBOutlet weak var currencyImage: UIImageView!
@@ -31,21 +31,18 @@ class CurrencySheetViewController: UIViewController {
         super.viewDidLoad()
         sheetPresentationController!.delegate = self
         
-        self.updatedCurrensies.saveCurrencies()
-        let timestamp = updatedCurrensies.data?.timestamp
-        let valute = updatedCurrensies.valutes[key]
+        FetchRequest.currencyRequest { valutes in
+            self.valutes = valutes
+            
+            DispatchQueue.main.async {
+                guard let valute = valutes[self.key] else {
+                    print("error")
+                    return
+                }
+                self.configureSheetView(valute: valute, key: self.key)
+            }
+        }
         
-        currencyName.text = { return valute!.nominalString + " " + valute!.name }()
-        currencyImage.image = UIImage(named: key) ?? UIImage(systemName: "Person")
-        currencyImage.layer.cornerRadius = currencyImage.frame.size.height / 4
-        currencyImage.layer.borderWidth = 0.2
-        currencyImage.layer.borderColor = CGColor(gray: 0.1, alpha: 1)
-        currencyValue.text = { return valute!.currencyValueString + " ₽" }()
-        dailyChangePercent.text = valute?.dailyChangePercentString
-        dailyChangePercent.textColor = UIColor(named: valute!.dailyChangeColor)
-        dailyChangeValue.text = valute?.dailyChangeValueString
-        dailyChangeValue.textColor = UIColor(named: valute!.dailyChangeColor)
-        lastUpdate.text = timestamp!
         
     }
     
@@ -55,5 +52,21 @@ extension CurrencySheetViewController: UISheetPresentationControllerDelegate {
     override var sheetPresentationController: UISheetPresentationController? {
         presentationController as? UISheetPresentationController
     }
-    
+}
+
+extension CurrencySheetViewController {
+    func configureSheetView (valute: Valutes, key: String) {
+        self.currencyName.text = { return valute.nominalString + " " + valute.name }()
+        self.currencyImage.image = UIImage(named: key) ?? UIImage(systemName: "Person")
+        self.currencyImage.layer.cornerRadius = self.currencyImage.frame.size.height / 4
+        self.currencyImage.layer.borderWidth = 0.2
+        self.currencyImage.layer.borderColor = CGColor(gray: 0.1, alpha: 1)
+        self.currencyValue.text = { return valute.currencyValueString + " ₽" }()
+        self.dailyChangePercent.text = valute.dailyChangePercentString
+        self.dailyChangePercent.textColor = UIColor(named: valute.dailyChangeColor)
+        self.dailyChangeValue.text = valute.dailyChangeValueString
+        self.dailyChangeValue.textColor = UIColor(named: valute.dailyChangeColor)
+        self.lastUpdate.text = "Дата и время"
+    }
+
 }
