@@ -9,10 +9,10 @@ import UIKit
 
 class CurrencySheetViewController: UIViewController {
     
-    
-    let constants = Constants()
     var key: String = "USD"
+    var isLastVCwasFavoriteVC = false
     var valutes = [String : Valutes]()
+    var favoritesContainsValute = false
     
     @IBOutlet weak var currencyName: UILabel!
     @IBOutlet weak var currencyImage: UIImageView!
@@ -31,6 +31,7 @@ class CurrencySheetViewController: UIViewController {
         super.viewDidLoad()
         sheetPresentationController!.delegate = self
         
+        
         FetchRequest.currencyRequest { valutes in
             self.valutes = valutes
             
@@ -42,8 +43,37 @@ class CurrencySheetViewController: UIViewController {
                 self.configureSheetView(valute: valute, key: self.key)
             }
         }
-        
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if Constants.favoritesKeys.contains(self.key) {
+            self.addToFavorite.setTitle("Удалить из избранного", for: .normal)
+            self.addToFavorite.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal)
+            self.favoritesContainsValute.toggle()
+        }
+    }
+    
+    @IBAction func addToFavorite(_ sender: UIButton) {
+        if !favoritesContainsValute {
+            Constants.favoritesKeys.append(self.key)
+            self.addToFavorite.setTitle("Удалить из избранного", for: .normal)
+            self.addToFavorite.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal)
+            favoritesContainsValute.toggle()
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+        } else {
+            guard let index = Constants.favoritesKeys.firstIndex(of: self.key) else { return }
+            Constants.favoritesKeys.remove(at: index)
+            self.addToFavorite.setTitle("Добавить в избранное", for: .normal)
+            self.addToFavorite.setImage(UIImage(systemName: "flame.fill"), for: .normal)
+            favoritesContainsValute.toggle()
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+            if self.isLastVCwasFavoriteVC {
+                print("deleted")
+                self.dismiss(animated: true)
+            }
+        }
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.impactOccurred()
     }
     
 }
@@ -68,5 +98,5 @@ extension CurrencySheetViewController {
         self.dailyChangeValue.textColor = UIColor(named: valute.dailyChangeColor)
         self.lastUpdate.text = "Дата и время"
     }
-
+    
 }

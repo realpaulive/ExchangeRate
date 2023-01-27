@@ -7,6 +7,7 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,116 +19,117 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nhr-aD-f4M">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MYO-sp-ciN">
                                 <rect key="frame" x="0.0" y="91" width="390" height="753"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteCell" rowHeight="80" id="bo7-cJ-tX2" customClass="FavoriteViewCell" customModule="ExchangeRate" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="390" height="80"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bo7-cJ-tX2" id="ps3-un-xpH">
-                                            <rect key="frame" x="0.0" y="0.0" width="390" height="80"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vkG-Qa-tGE">
+                                    <size key="itemSize" width="389" height="58"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FavoriteCell" id="Cps-Dw-gzt" customClass="FavoriteViewCell" customModule="ExchangeRate" customModuleProvider="target">
+                                        <rect key="frame" x="0.66666666666666663" y="0.0" width="389" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="8L3-Nu-Obj">
+                                            <rect key="frame" x="0.0" y="0.0" width="389" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HVK-dJ-rBg">
-                                                    <rect key="frame" x="15" y="10" width="65" height="60"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dhB-4L-HEm">
+                                                    <rect key="frame" x="0.0" y="0.0" width="76" height="64"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="65" id="57F-FC-KZo"/>
-                                                        <constraint firstAttribute="height" constant="60" id="K37-qp-iTz"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="dD4-EF-X7O"/>
+                                                        <constraint firstAttribute="height" constant="58" id="gN0-m6-PE0"/>
+                                                        <constraint firstAttribute="width" constant="76" id="nl5-JB-1hK"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GBR" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bTn-qB-3Xc">
-                                                    <rect key="frame" x="90" y="43" width="48.333333333333343" height="29"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="62.12 ₽ " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s0f-Ir-isE">
+                                                    <rect key="frame" x="294.33333333333331" y="8.0000000000000018" width="86.666666666666686" height="28.666666666666671"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="29" id="ltA-fl-9XP"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="9HA-0o-1ZU"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="62.13₽" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="may-B4-SY7">
-                                                    <rect key="frame" x="277" y="43" width="98" height="29"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="1 Фунт стерлингов Соединенного королевства" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="roz-Ac-cDW">
+                                                    <rect key="frame" x="86" y="42.666666666666664" width="172" height="12"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="98" id="p3c-VX-hV4"/>
+                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="180" id="9xa-4H-Obr"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="GBP" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cb1-Gm-bcz">
+                                                    <rect key="frame" x="86" y="8.0000000000000018" width="60" height="28.666666666666671"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="Ew6-zF-N3S"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Фунт стерлингов Соединенного королевства" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Qd-6o-uab">
-                                                    <rect key="frame" x="90" y="10" width="170" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="99o-ka-8tj"/>
-                                                        <constraint firstAttribute="width" constant="170" id="c3a-vI-cp7"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+1.45 %" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpe-Bj-ajt">
-                                                    <rect key="frame" x="316" y="11" width="54" height="12"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="54" id="Wh5-TU-Xgr"/>
-                                                        <constraint firstAttribute="height" constant="12" id="dQd-Yz-CdM"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+1.45 %" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yi8-Kf-L9E">
-                                                    <rect key="frame" x="316" y="28" width="54" height="12"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="54" id="8Xq-nZ-bRe"/>
-                                                        <constraint firstAttribute="height" constant="12" id="ShG-1e-MDP"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="rgT-pZ-72l">
+                                                    <rect key="frame" x="299" y="43.333333333333336" width="82" height="11"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+1,23 % " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpc-pp-KV2">
+                                                            <rect key="frame" x="0.0" y="0.0" width="39" height="11"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="9"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+1,23 % " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WxT-ND-dHJ">
+                                                            <rect key="frame" x="43" y="0.0" width="39" height="11"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="9"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="may-B4-SY7" firstAttribute="top" secondItem="Yi8-Kf-L9E" secondAttribute="bottom" constant="3" id="0S3-RY-VGi"/>
-                                                <constraint firstItem="kpe-Bj-ajt" firstAttribute="trailing" secondItem="ps3-un-xpH" secondAttribute="trailingMargin" id="4h4-jE-o3X"/>
-                                                <constraint firstItem="Yi8-Kf-L9E" firstAttribute="trailing" secondItem="ps3-un-xpH" secondAttribute="trailingMargin" id="8In-m8-Njb"/>
-                                                <constraint firstItem="kpe-Bj-ajt" firstAttribute="top" secondItem="ps3-un-xpH" secondAttribute="topMargin" id="9ih-ap-STq"/>
-                                                <constraint firstAttribute="bottom" secondItem="HVK-dJ-rBg" secondAttribute="bottom" constant="10" id="EmY-32-bnh"/>
-                                                <constraint firstItem="Yi8-Kf-L9E" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1Qd-6o-uab" secondAttribute="trailing" constant="8" symbolic="YES" id="GSS-rW-oKH"/>
-                                                <constraint firstItem="1Qd-6o-uab" firstAttribute="top" secondItem="ps3-un-xpH" secondAttribute="top" constant="10" id="JgO-Bb-PBv"/>
-                                                <constraint firstAttribute="bottom" secondItem="may-B4-SY7" secondAttribute="bottom" constant="8" id="Lcq-Yi-Rif"/>
-                                                <constraint firstItem="HVK-dJ-rBg" firstAttribute="leading" secondItem="ps3-un-xpH" secondAttribute="leading" constant="15" id="OnC-LD-3QB"/>
-                                                <constraint firstItem="kpe-Bj-ajt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1Qd-6o-uab" secondAttribute="trailing" constant="8" symbolic="YES" id="Qoz-fj-M5d"/>
-                                                <constraint firstItem="may-B4-SY7" firstAttribute="top" secondItem="Yi8-Kf-L9E" secondAttribute="bottom" constant="3" id="XSC-hg-RPH"/>
-                                                <constraint firstItem="Yi8-Kf-L9E" firstAttribute="top" secondItem="kpe-Bj-ajt" secondAttribute="bottom" constant="5" id="XYD-H2-Y3j"/>
-                                                <constraint firstAttribute="trailing" secondItem="may-B4-SY7" secondAttribute="trailing" constant="15" id="Z7x-fh-41I"/>
-                                                <constraint firstItem="Yi8-Kf-L9E" firstAttribute="top" secondItem="kpe-Bj-ajt" secondAttribute="bottom" constant="5" id="enQ-da-Fl5"/>
-                                                <constraint firstItem="bTn-qB-3Xc" firstAttribute="leading" secondItem="HVK-dJ-rBg" secondAttribute="trailing" constant="10" id="env-De-E0l"/>
-                                                <constraint firstItem="bTn-qB-3Xc" firstAttribute="top" secondItem="1Qd-6o-uab" secondAttribute="bottom" constant="3" id="eqq-fl-g1J"/>
-                                                <constraint firstAttribute="bottom" secondItem="bTn-qB-3Xc" secondAttribute="bottom" constant="8" id="fHt-AH-78F"/>
-                                                <constraint firstItem="1Qd-6o-uab" firstAttribute="leading" secondItem="HVK-dJ-rBg" secondAttribute="trailing" constant="10" id="gJJ-7k-bLn"/>
-                                                <constraint firstItem="bTn-qB-3Xc" firstAttribute="top" secondItem="1Qd-6o-uab" secondAttribute="bottom" constant="3" id="lxP-Tx-PtM"/>
-                                                <constraint firstItem="HVK-dJ-rBg" firstAttribute="top" secondItem="ps3-un-xpH" secondAttribute="top" constant="10" id="pQM-yo-BaE"/>
-                                                <constraint firstItem="may-B4-SY7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bTn-qB-3Xc" secondAttribute="trailing" constant="8" symbolic="YES" id="zC2-Vx-2Zu"/>
+                                                <constraint firstItem="roz-Ac-cDW" firstAttribute="top" secondItem="cb1-Gm-bcz" secondAttribute="bottom" constant="6" id="1fn-t6-Qhl"/>
+                                                <constraint firstItem="rgT-pZ-72l" firstAttribute="centerY" secondItem="roz-Ac-cDW" secondAttribute="centerY" id="Fbv-km-Ugw"/>
+                                                <constraint firstItem="cb1-Gm-bcz" firstAttribute="top" secondItem="8L3-Nu-Obj" secondAttribute="top" constant="8" id="IMt-mP-kG0"/>
+                                                <constraint firstItem="s0f-Ir-isE" firstAttribute="top" secondItem="8L3-Nu-Obj" secondAttribute="top" constant="8" id="IzJ-5s-J4Q"/>
+                                                <constraint firstItem="dhB-4L-HEm" firstAttribute="top" secondItem="8L3-Nu-Obj" secondAttribute="top" id="Wnf-X2-JlQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="rgT-pZ-72l" secondAttribute="trailing" constant="8" id="XCx-hv-4zY"/>
+                                                <constraint firstItem="dhB-4L-HEm" firstAttribute="leading" secondItem="8L3-Nu-Obj" secondAttribute="leading" id="XDX-pc-xGy"/>
+                                                <constraint firstAttribute="bottom" secondItem="roz-Ac-cDW" secondAttribute="bottom" constant="9.3300000000000001" id="ZuF-dJ-ksF"/>
+                                                <constraint firstItem="s0f-Ir-isE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="cb1-Gm-bcz" secondAttribute="trailing" constant="8" symbolic="YES" id="agw-PE-dHY"/>
+                                                <constraint firstAttribute="trailing" secondItem="s0f-Ir-isE" secondAttribute="trailing" constant="8" id="c8f-A8-NGM"/>
+                                                <constraint firstItem="cb1-Gm-bcz" firstAttribute="leading" secondItem="dhB-4L-HEm" secondAttribute="trailing" constant="10" id="fXE-eN-kGt"/>
+                                                <constraint firstAttribute="bottom" secondItem="dhB-4L-HEm" secondAttribute="bottom" id="lLn-nL-IcF"/>
+                                                <constraint firstItem="roz-Ac-cDW" firstAttribute="leading" secondItem="dhB-4L-HEm" secondAttribute="trailing" constant="10" id="nds-ZC-oCr"/>
                                             </constraints>
-                                        </tableViewCellContentView>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="389" height="64"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="currencyImage" destination="HVK-dJ-rBg" id="v27-Rg-1UP"/>
-                                            <outlet property="currencyKey" destination="bTn-qB-3Xc" id="G6t-jF-AY3"/>
-                                            <outlet property="currencyName" destination="1Qd-6o-uab" id="PkC-8v-faQ"/>
-                                            <outlet property="currencyValue" destination="may-B4-SY7" id="s2A-tu-LWR"/>
-                                            <outlet property="dailyChangePercent" destination="kpe-Bj-ajt" id="hV9-JO-J0E"/>
-                                            <outlet property="dailyChangeValue" destination="Yi8-Kf-L9E" id="sgi-YR-9Ex"/>
+                                            <outlet property="currencyImage" destination="dhB-4L-HEm" id="rXG-z8-Sh5"/>
+                                            <outlet property="currencyKey" destination="cb1-Gm-bcz" id="Jds-wf-6XH"/>
+                                            <outlet property="currencyName" destination="roz-Ac-cDW" id="8sF-hH-gfZ"/>
+                                            <outlet property="currencyValue" destination="s0f-Ir-isE" id="GRj-Au-Ma7"/>
+                                            <outlet property="dailyChangePercent" destination="tpc-pp-KV2" id="DZ6-oS-pys"/>
+                                            <outlet property="dailyChangeValue" destination="WxT-ND-dHJ" id="FLG-cf-ctJ"/>
                                         </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="nhr-aD-f4M" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="MhS-R4-9yM"/>
-                            <constraint firstItem="nhr-aD-f4M" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ciX-Qg-qa6"/>
-                            <constraint firstAttribute="bottom" secondItem="nhr-aD-f4M" secondAttribute="bottom" id="dKD-lP-cnO"/>
-                            <constraint firstItem="nhr-aD-f4M" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dVB-xQ-m41"/>
+                            <constraint firstItem="MYO-sp-ciN" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="1Xu-u3-uHi"/>
+                            <constraint firstItem="MYO-sp-ciN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="4m1-df-GpG"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="MYO-sp-ciN" secondAttribute="bottom" constant="-83" id="IzF-LP-55T"/>
+                            <constraint firstItem="MYO-sp-ciN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ooe-Ow-nAO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Избранное" id="OJN-RF-BCZ">
@@ -139,10 +141,13 @@
                                     <color systemColor="tertiaryLabelColor"/>
                                 </hierarchicalColors>
                             </imageReference>
+                            <connections>
+                                <action selector="prefrensesAction:" destination="BYZ-38-t0r" id="FFK-XX-AiG"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="nhr-aD-f4M" id="KqG-mg-Z6l"/>
+                        <outlet property="collectionView" destination="MYO-sp-ciN" id="WLg-2m-DZj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -408,28 +413,31 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="HZD-JB-i91">
-                                <rect key="frame" x="16" y="186" width="358" height="34.333333333333343"/>
+                                <rect key="frame" x="16" y="186" width="358" height="54.333333333333343"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rWy-z3-c3B">
-                                        <rect key="frame" x="0.0" y="0.0" width="171" height="34.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="171" height="54.333333333333336"/>
                                         <color key="tintColor" systemColor="systemPinkColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="tinted" imagePlacement="trailing" title="В избранное" imagePadding="8" titleAlignment="leading">
-                                            <imageReference key="image" image="flame.fill" catalog="system" symbolScale="medium" renderingMode="template"/>
+                                        <buttonConfiguration key="configuration" style="tinted" imagePlacement="trailing" title="Добавить в избранное" imagePadding="8" titleAlignment="leading">
+                                            <imageReference key="image" image="flame.fill" catalog="system" symbolScale="large" renderingMode="template"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="addToFavorite:" destination="bfs-53-jAg" eventType="touchUpInside" id="r2x-kU-967"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Jv-uR-Hed">
-                                        <rect key="frame" x="187" y="0.0" width="171" height="34.333333333333336"/>
+                                        <rect key="frame" x="187" y="0.0" width="171" height="54.333333333333336"/>
                                         <color key="tintColor" systemColor="systemOrangeColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="tinted" imagePlacement="trailing" title="К сравнению" imagePadding="8" titleAlignment="leading">
-                                            <imageReference key="image" image="plusminus.circle.fill" catalog="system" symbolScale="medium" renderingMode="template"/>
+                                        <buttonConfiguration key="configuration" style="tinted" imagePlacement="trailing" title="Добавить к сравнению" imagePadding="8" titleAlignment="leading">
+                                            <imageReference key="image" image="plusminus.circle.fill" catalog="system" symbolScale="large" renderingMode="template"/>
                                         </buttonConfiguration>
                                     </button>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sl7-SH-WU2">
-                                <rect key="frame" x="16" y="244.33333333333334" width="358" height="268.66666666666663"/>
+                                <rect key="frame" x="16" y="264.33333333333326" width="358" height="268.66666666666674"/>
                                 <string key="text">Фунт сте́рлингов (также фунт стерлингов соединенного королевства, британский фунт; англ. Pound sterling, Pound, British pound) — денежная единица Соединённого Королевства Великобритании и Северной Ирландии (Великобритании), одна из основных резервных валют мира. Фунт стерлингов состоит из 100 пенсов (ед. ч. пенни). Буквенный Код в стандарте ISO 4217 — GBP (от англ. Great Britain Pound), цифровой — 826; Официальный символ — £ (от лат. Libra — либра, эквивалентная фунту). По состоянию на апрель 2019 года, Фунт стерлингов является четвертой наиболее торгуемой валютой в мире и также в межбанковских расчётах[2].</string>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <nil key="textColor"/>
@@ -514,7 +522,7 @@
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plusminus.circle.fill" catalog="system" width="128" height="123"/>
         <namedColor name="Green">
-            <color red="0.039000000804662704" green="0.75541478395462036" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.039000000804662704" green="0.75499999523162842" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>

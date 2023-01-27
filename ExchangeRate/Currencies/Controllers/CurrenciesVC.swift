@@ -9,7 +9,6 @@ import UIKit
 
 class CurrenciesViewController: UITableViewController {
     
-    let constants = Constants()
     let searchController = UISearchController(searchResultsController: nil)
     var valutes = [String : Valutes]()
     
@@ -53,7 +52,7 @@ class CurrenciesViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CurrencyTableViewCell
         cell.backgroundColor = UIColor(named: "LightGray")
         
-        let key = constants.currencyKeys[indexPath.row]
+        let key = Constants.currencyKeys[indexPath.row]
         guard let value = valutes[key] else { return cell}
         cell.setUpCell(valutes: value, key: key)
         
@@ -62,7 +61,7 @@ class CurrenciesViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let key = constants.currencyKeys[indexPath.row]
+        let key = Constants.currencyKeys[indexPath.row]
         
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let sheetVC = storyboard.instantiateViewController(withIdentifier: "CurrencySheetView") as! CurrencySheetViewController

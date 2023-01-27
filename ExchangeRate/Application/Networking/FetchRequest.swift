@@ -15,8 +15,7 @@ class FetchRequest {
         AF.request(url, method: .get).validate().responseDecodable(of: Response.self, queue: .global(qos: .utility)) { response in
             switch response.result {
             case .success(let value):
-                let constants = Constants()
-                let keys = constants.currencyKeys
+                let keys = Constants.currencyKeys
                 var valutes = [String : Valutes]()
                 for key in keys {
                     valutes[key] = Valutes(currentRateData: value.valute[key]!)
