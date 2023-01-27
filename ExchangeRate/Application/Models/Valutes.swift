@@ -59,7 +59,7 @@ struct Valutes {
     
    
     
-    // MARK: - Initialization
+    // MARK: - Initialisation
     init? (currentRateData: Valute) {
         name = currentRateData.name
         currencyValue = currentRateData.value

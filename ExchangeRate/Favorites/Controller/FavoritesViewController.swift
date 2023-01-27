@@ -9,6 +9,12 @@ import UIKit
 
 class FavoritesViewController: UIViewController {
     
+    // MARK: - Values
+    
+    var valutes = [String : Valutes]()
+    
+    // MARK: - Outlets
+    
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
             collectionView.delegate = self
@@ -17,8 +23,9 @@ class FavoritesViewController: UIViewController {
             collectionView.dragInteractionEnabled = true
         }
     }
-    var valutes = [String : Valutes]()
- 
+    
+    // MARK: - ViewMethods
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,18 +49,21 @@ class FavoritesViewController: UIViewController {
         self.collectionView.reloadData()
     }
     
+    // MARK: - Methods
+
     @objc func loadList(notification: NSNotification){
         //load data here
         self.collectionView.reloadData()
     }
     
+    // MARK: - Actions
+    
     @IBAction func prefrensesAction(_ sender: Any) {
         self.collectionView.reloadData()
     }
-    
-  
-    
 }
+
+// MARK: - Extensions: Delegate, DataSourse
 
 extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -85,12 +95,9 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
         }
         self.present(sheetVC, animated: true)
     }
-    
-    func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
 }
 
+// MARK: - Extensions: LayoutSettingUp
 
 extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -101,8 +108,9 @@ extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
             return 8
         }
-    
 }
+
+// MARK: - Extensions: DragDelegate
 
 extension FavoritesViewController: UICollectionViewDragDelegate {
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {

@@ -150,7 +150,6 @@
 		713825E1294F49EE001B9594 /* Currencies */ = {
 			isa = PBXGroup;
 			children = (
-				71C9FAA62943408600DF203C /* Models */,
 				71B20A362944D237000C4F7F /* Views */,
 				71C9FAA52943407500DF203C /* Controllers */,
 			);
@@ -189,7 +188,6 @@
 			children = (
 				713825F2294FA841001B9594 /* Controller */,
 				713825F1294FA838001B9594 /* View */,
-				713825F0294FA82E001B9594 /* Model */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -213,13 +211,6 @@
 				71B23CAE294298FB00DC1888 /* ExchangeRate.xcdatamodeld */,
 			);
 			path = SupportingFiles;
-			sourceTree = "<group>";
-		};
-		713825F0294FA82E001B9594 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		713825F1294FA838001B9594 /* View */ = {
@@ -313,13 +304,6 @@
 				71B23CBE29429A7200DC1888 /* CurrenciesVC.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		71C9FAA62943408600DF203C /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		71DE66CA29575E180035107A /* Frameworks */ = {

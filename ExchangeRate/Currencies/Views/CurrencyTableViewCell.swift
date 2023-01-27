@@ -8,12 +8,16 @@
 import UIKit
 
 class CurrencyTableViewCell: UITableViewCell {
-  
+    
+    // MARK: - Outlets
+    
     @IBOutlet weak var currencyImage: UIImageView!
     @IBOutlet weak var currencyKey: UILabel!
     @IBOutlet weak var currancyName: UILabel!
     @IBOutlet weak var currancyValue: UILabel!
     @IBOutlet weak var dailyChange: UILabel!
+    
+    // MARK: - Methods
     
     func setUpCell (valutes: Valutes, key: String) {
         self.currencyKey?.text = key
@@ -21,7 +25,7 @@ class CurrencyTableViewCell: UITableViewCell {
         self.currancyValue.text =  { return valutes.currencyValueString + " ₽" }()
         self.dailyChange.text = valutes.dailyChangePercentString
         self.dailyChange.textColor = UIColor(named: valutes.dailyChangeColor)
-    
+        
         self.currencyImage.image = UIImage(named: key)
         self.currencyImage.layer.cornerRadius = self.currencyImage.frame.size.height / 4
         self.currencyImage.layer.borderWidth = 0.2

@@ -8,6 +8,8 @@
 import Foundation
 import Alamofire
 
+// MARK: - AFRequest
+
 class FetchRequest {
     static func currencyRequest (completion: @escaping ([String : Valutes]) -> ()) {
         let urlString = "https://www.cbr-xml-daily.ru/daily_json.js"

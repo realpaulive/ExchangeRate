@@ -8,11 +8,16 @@
 import UIKit
 
 class CurrencySheetViewController: UIViewController {
+  
+    
+    // MARK: - Values
     
     var key: String = "USD"
     var isLastVCwasFavoriteVC = false
     var valutes = [String : Valutes]()
     var favoritesContainsValute = false
+    
+    // MARK: - Outlets
     
     @IBOutlet weak var currencyName: UILabel!
     @IBOutlet weak var currencyImage: UIImageView!
@@ -25,7 +30,7 @@ class CurrencySheetViewController: UIViewController {
     @IBOutlet weak var addToConverter: UIButton!
     
     
-    
+    //MARK: - ViewFunctions
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,42 +52,32 @@ class CurrencySheetViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         if Constants.favoritesKeys.contains(self.key) {
-            self.addToFavorite.setTitle("Удалить из избранного", for: .normal)
-            self.addToFavorite.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal)
-            self.favoritesContainsValute.toggle()
+            addToFavorite.setTitle("Удалить из избранного", for: .normal)
+            addToFavorite.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal)
+            favoritesContainsValute.toggle()
         }
     }
     
+    //MARK: - Actions
+    
     @IBAction func addToFavorite(_ sender: UIButton) {
-        if !favoritesContainsValute {
-            Constants.favoritesKeys.append(self.key)
-            self.addToFavorite.setTitle("Удалить из избранного", for: .normal)
-            self.addToFavorite.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal)
-            favoritesContainsValute.toggle()
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
-        } else {
-            guard let index = Constants.favoritesKeys.firstIndex(of: self.key) else { return }
-            Constants.favoritesKeys.remove(at: index)
-            self.addToFavorite.setTitle("Добавить в избранное", for: .normal)
-            self.addToFavorite.setImage(UIImage(systemName: "flame.fill"), for: .normal)
-            favoritesContainsValute.toggle()
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
-            if self.isLastVCwasFavoriteVC {
-                print("deleted")
-                self.dismiss(animated: true)
-            }
-        }
+        addToFavoriteButtonPressed(favoritesContainsValute: favoritesContainsValute)
         let generator = UIImpactFeedbackGenerator(style: .medium)
         generator.impactOccurred()
     }
     
 }
 
+// MARK: - Extension: Delegates
+
 extension CurrencySheetViewController: UISheetPresentationControllerDelegate {
     override var sheetPresentationController: UISheetPresentationController? {
         presentationController as? UISheetPresentationController
     }
 }
+
+
+// MARK: - Extension: BusinessLogic
 
 extension CurrencySheetViewController {
     func configureSheetView (valute: Valutes, key: String) {
@@ -99,4 +94,30 @@ extension CurrencySheetViewController {
         self.lastUpdate.text = "Дата и время"
     }
     
+    func addToFavoriteButtonPressed(favoritesContainsValute: Bool) {
+        if !favoritesContainsValute {
+            Constants.favoritesKeys.append(self.key)
+            self.favoritesContainsValute.toggle()
+            
+            addToFavorite.setTitle("Удалить из избранного", for: .normal)
+            addToFavorite.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal)
+            
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+        } else {
+            guard let index = Constants.favoritesKeys.firstIndex(of: self.key) else { return }
+            
+            Constants.favoritesKeys.remove(at: index)
+            self.favoritesContainsValute.toggle()
+            
+            addToFavorite.setTitle("Добавить в избранное", for: .normal)
+            addToFavorite.setImage(UIImage(systemName: "flame.fill"), for: .normal)
+            
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+            
+            if isLastVCwasFavoriteVC {
+                print("deleted")
+                self.dismiss(animated: true)
+            }
+        }
+    }
 }

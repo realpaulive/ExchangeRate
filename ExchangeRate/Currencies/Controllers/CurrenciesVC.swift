@@ -9,9 +9,12 @@ import UIKit
 
 class CurrenciesViewController: UITableViewController {
     
+    // MARK: - Values
+    
     let searchController = UISearchController(searchResultsController: nil)
     var valutes = [String : Valutes]()
     
+    // MARK: - ViewMethods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,16 +27,13 @@ class CurrenciesViewController: UITableViewController {
         setUpSearchBar()
     }
     
+    // MARK: - Actions
+    
     @IBAction func reloadAction(_ sender: UIBarButtonItem) {
         
     }
     
     // MARK: - TableViewFunctions
-    
-    private func setUpSearchBar () {
-        navigationItem.searchController = searchController
-        self.searchController.searchBar.delegate = self
-    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -75,17 +75,38 @@ class CurrenciesViewController: UITableViewController {
         self.present(sheetVC, animated: true)
     }
     
+    // MARK: - TableViewSwipeActions
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let TrashAction = UIContextualAction(style: .normal, title:  "Trash", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+                    print("Update action ...")
+                    success(true)
+                })
+                TrashAction.backgroundColor = .red
+        return UISwipeActionsConfiguration(actions: [TrashAction])
+    }
+    
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let TrashAction = UIContextualAction(style: .normal, title:  "Trash", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+                    print("Update action ...")
+                    success(true)
+                })
+                TrashAction.backgroundColor = .yellow
+        return UISwipeActionsConfiguration(actions: [TrashAction])
+    }
+    
 }
 
-// MARK: - Extensions
+// MARK: - Extensions: SearchBar
 
 extension CurrenciesViewController: UISearchBarDelegate {
+    
+    private func setUpSearchBar () {
+        navigationItem.searchController = searchController
+        self.searchController.searchBar.delegate = self
+    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print(searchText)
     }
 }
-//extension CurrenciesViewController: UISheetPresentationControllerDelegate {
-//    override var sheetPresentationController: UISheetPresentationController? {
-//        presentationController as? UISheetPresentationController
-//    }
-//}

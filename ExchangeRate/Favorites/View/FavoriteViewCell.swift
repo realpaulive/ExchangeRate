@@ -11,12 +11,16 @@ import UIKit
 
 class FavoriteViewCell: UICollectionViewCell {
 
+    // MARK: - Outlets
+    
     @IBOutlet weak var currencyImage: UIImageView!
     @IBOutlet weak var currencyName: UILabel!
     @IBOutlet weak var dailyChangeValue: UILabel!
     @IBOutlet weak var dailyChangePercent: UILabel!
     @IBOutlet weak var currencyKey: UILabel!
     @IBOutlet weak var currencyValue: UILabel!
+    
+    // MARK: - Methods
     
     func setUpFavoriteCell (valutes: Valutes, key: String) {
         self.currencyKey?.text = key
@@ -31,6 +35,4 @@ class FavoriteViewCell: UICollectionViewCell {
         self.currencyImage.layer.borderWidth = 0.2
         self.currencyImage.layer.borderColor = CGColor(gray: 0.1, alpha: 1)
     }
-    
-    
 }
