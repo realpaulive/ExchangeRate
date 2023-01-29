@@ -68,7 +68,7 @@ class CurrencySheetViewController: UIViewController {
     
 }
 
-// MARK: - Extension: Delegates
+// MARK: - Extension: PresentationDelegates
 
 extension CurrencySheetViewController: UISheetPresentationControllerDelegate {
     override var sheetPresentationController: UISheetPresentationController? {
@@ -102,7 +102,7 @@ extension CurrencySheetViewController {
             addToFavorite.setTitle("Удалить из избранного", for: .normal)
             addToFavorite.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal)
             
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadFavorites"), object: nil)
         } else {
             guard let index = Constants.favoritesKeys.firstIndex(of: self.key) else { return }
             
@@ -112,7 +112,7 @@ extension CurrencySheetViewController {
             addToFavorite.setTitle("Добавить в избранное", for: .normal)
             addToFavorite.setImage(UIImage(systemName: "flame.fill"), for: .normal)
             
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadFavorites"), object: nil)
             
             if isLastVCwasFavoriteVC {
                 print("deleted")

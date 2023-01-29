@@ -15,6 +15,7 @@ class FavoritesViewController: UIViewController {
     
     // MARK: - Outlets
     
+    @IBOutlet weak var noValutesButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
             collectionView.delegate = self
@@ -29,7 +30,7 @@ class FavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadFavorites), name: NSNotification.Name(rawValue: "reloadFavorites"), object: nil)
         
         FetchRequest.currencyRequest { valutes in
             self.valutes = valutes
@@ -41,22 +42,30 @@ class FavoritesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.collectionView.reloadData()
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
+        hideNoValutesLabel()
         self.collectionView.reloadData()
     }
     
     // MARK: - Methods
 
-    @objc func loadList(notification: NSNotification){
-        //load data here
+    @objc func reloadFavorites(notification: NSNotification){
+        hideNoValutesLabel()
         self.collectionView.reloadData()
     }
     
     // MARK: - Actions
+    
+    
+    @IBAction func noValutesButtonAction(_ sender: Any) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ValutesListViewController") as! ValutesListViewController
+        vc.isFromFavorites = true
+        if let sheet = vc.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+            sheet.preferredCornerRadius = 22.0
+            sheet.prefersGrabberVisible = false
+        }
+        self.present(vc, animated: true)
+    }
     
     @IBAction func prefrensesAction(_ sender: Any) {
         self.collectionView.reloadData()
@@ -127,5 +136,17 @@ extension FavoritesViewController: UICollectionViewDragDelegate {
         let dragItem = UIDragItem(itemProvider: itemProvider)
         dragItem.localObject = imageName
         return dragItem
+    }
+}
+
+// MARK: - Extensions: BusinessLogic
+
+extension FavoritesViewController {
+    func hideNoValutesLabel() {
+        if Constants.favoritesKeys != [] {
+            self.noValutesButton.isHidden = true
+        } else {
+            self.noValutesButton.isHidden = false
+        }
     }
 }

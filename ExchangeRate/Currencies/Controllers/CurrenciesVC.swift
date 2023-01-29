@@ -71,7 +71,7 @@ class CurrenciesViewController: UITableViewController {
             sheet.preferredCornerRadius = 22.0
             sheet.prefersGrabberVisible = true
         }
-    
+        
         self.present(sheetVC, animated: true)
     }
     
@@ -79,19 +79,23 @@ class CurrenciesViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let TrashAction = UIContextualAction(style: .normal, title:  "Trash", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-                    print("Update action ...")
-                    success(true)
-                })
-                TrashAction.backgroundColor = .red
+            print("Update action ...")
+            let cell = tableView.cellForRow(at: indexPath)
+            cell?.accessoryType = .checkmark
+            success(true)
+        })
+        TrashAction.backgroundColor = .red
         return UISwipeActionsConfiguration(actions: [TrashAction])
     }
     
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let TrashAction = UIContextualAction(style: .normal, title:  "Trash", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-                    print("Update action ...")
-                    success(true)
-                })
-                TrashAction.backgroundColor = .yellow
+            let cell = tableView.cellForRow(at: indexPath)
+            cell?.accessoryType = .none
+            print("Update action ...")
+            success(true)
+        })
+        TrashAction.backgroundColor = .yellow
         return UISwipeActionsConfiguration(actions: [TrashAction])
     }
     

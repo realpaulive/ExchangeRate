@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		713825F5294FA8DF001B9594 /* FavoriteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713825F4294FA8DF001B9594 /* FavoriteViewCell.swift */; };
+		7146E6D22986C6B60030B397 /* ValutesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7146E6D12986C6B60030B397 /* ValutesListViewController.swift */; };
+		7146E6DF2986CD750030B397 /* TinyValutesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7146E6DE2986CD750030B397 /* TinyValutesCell.swift */; };
 		7168AFD82957644B00807E7D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7168AFC92957643100807E7D /* Alamofire.framework */; };
 		7168AFD92957644B00807E7D /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7168AFC92957643100807E7D /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		716AE5E92943AC2300D656C5 /* Valutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716AE5E82943AC2300D656C5 /* Valutes.swift */; };
@@ -23,6 +25,7 @@
 		71B23CB2294298FF00DC1888 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71B23CB1294298FF00DC1888 /* Assets.xcassets */; };
 		71B23CB5294298FF00DC1888 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71B23CB3294298FF00DC1888 /* LaunchScreen.storyboard */; };
 		71B23CBF29429A7200DC1888 /* CurrenciesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B23CBE29429A7200DC1888 /* CurrenciesVC.swift */; };
+		71BA67772987ED30006D40A6 /* ConverterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BA67762987ED30006D40A6 /* ConverterCell.swift */; };
 		71C9FAA22942B46F00DF203C /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C9FAA12942B46F00DF203C /* ConverterViewController.swift */; };
 		71E5A75029575AAB00102D1B /* FetchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E5A74F29575AAB00102D1B /* FetchRequest.swift */; };
 		71EAB7D229539A5200A151A5 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 71EAB7D129539A5200A151A5 /* .gitignore */; };
@@ -103,6 +106,8 @@
 
 /* Begin PBXFileReference section */
 		713825F4294FA8DF001B9594 /* FavoriteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewCell.swift; sourceTree = "<group>"; };
+		7146E6D12986C6B60030B397 /* ValutesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValutesListViewController.swift; sourceTree = "<group>"; };
+		7146E6DE2986CD750030B397 /* TinyValutesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinyValutesCell.swift; sourceTree = "<group>"; };
 		7168AFBD2957643100807E7D /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "Alamofire-master/Alamofire.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		716AE5E82943AC2300D656C5 /* Valutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Valutes.swift; sourceTree = "<group>"; };
 		716AE5EE2943DCAB00D656C5 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
@@ -119,6 +124,7 @@
 		71B23CB4294298FF00DC1888 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		71B23CB6294298FF00DC1888 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71B23CBE29429A7200DC1888 /* CurrenciesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesVC.swift; sourceTree = "<group>"; };
+		71BA67762987ED30006D40A6 /* ConverterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterCell.swift; sourceTree = "<group>"; };
 		71C9FAA12942B46F00DF203C /* ConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewController.swift; sourceTree = "<group>"; };
 		71E5A74F29575AAB00102D1B /* FetchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRequest.swift; sourceTree = "<group>"; };
 		71EAB7D129539A5200A151A5 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
@@ -186,7 +192,7 @@
 		713825E6294F4A83001B9594 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
-				713825F2294FA841001B9594 /* Controller */,
+				713825F2294FA841001B9594 /* Controllers */,
 				713825F1294FA838001B9594 /* View */,
 			);
 			path = Favorites;
@@ -195,7 +201,8 @@
 		713825E7294F4AAA001B9594 /* Converter */ = {
 			isa = PBXGroup;
 			children = (
-				71C9FAA12942B46F00DF203C /* ConverterViewController.swift */,
+				71BA67782987ED37006D40A6 /* Views */,
+				71BA676D2987ED0E006D40A6 /* Controllers */,
 			);
 			path = Converter;
 			sourceTree = "<group>";
@@ -221,20 +228,45 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		713825F2294FA841001B9594 /* Controller */ = {
+		713825F2294FA841001B9594 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				71B23CA9294298FB00DC1888 /* FavoritesViewController.swift */,
 			);
-			path = Controller;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
-		713825F3294FA84F001B9594 /* Sheeet */ = {
+		713825F3294FA84F001B9594 /* DetailSheet */ = {
 			isa = PBXGroup;
 			children = (
 				718AE02629453A5C009C41FA /* CurrencySheetVC.swift */,
 			);
-			path = Sheeet;
+			path = DetailSheet;
+			sourceTree = "<group>";
+		};
+		7146E6DB2986CD0A0030B397 /* ValutesList */ = {
+			isa = PBXGroup;
+			children = (
+				7146E6DD2986CD350030B397 /* Views */,
+				7146E6DC2986CD270030B397 /* Controllers */,
+			);
+			path = ValutesList;
+			sourceTree = "<group>";
+		};
+		7146E6DC2986CD270030B397 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7146E6D12986C6B60030B397 /* ValutesListViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7146E6DD2986CD350030B397 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7146E6DE2986CD750030B397 /* TinyValutesCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		7168AFBE2957643100807E7D /* Products */ = {
@@ -289,13 +321,30 @@
 			isa = PBXGroup;
 			children = (
 				713825E0294F49B5001B9594 /* Application */,
-				713825E7294F4AAA001B9594 /* Converter */,
 				713825E6294F4A83001B9594 /* Favorites */,
 				713825E1294F49EE001B9594 /* Currencies */,
-				713825F3294FA84F001B9594 /* Sheeet */,
+				713825E7294F4AAA001B9594 /* Converter */,
+				7146E6DB2986CD0A0030B397 /* ValutesList */,
+				713825F3294FA84F001B9594 /* DetailSheet */,
 				713825E8294F4B6F001B9594 /* SupportingFiles */,
 			);
 			path = ExchangeRate;
+			sourceTree = "<group>";
+		};
+		71BA676D2987ED0E006D40A6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				71C9FAA12942B46F00DF203C /* ConverterViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		71BA67782987ED37006D40A6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				71BA67762987ED30006D40A6 /* ConverterCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		71C9FAA52943407500DF203C /* Controllers */ = {
@@ -458,8 +507,10 @@
 				716AE5E92943AC2300D656C5 /* Valutes.swift in Sources */,
 				71B23CBF29429A7200DC1888 /* CurrenciesVC.swift in Sources */,
 				71B23CB0294298FB00DC1888 /* ExchangeRate.xcdatamodeld in Sources */,
+				7146E6DF2986CD750030B397 /* TinyValutesCell.swift in Sources */,
 				716AE5EF2943DCAB00D656C5 /* Response.swift in Sources */,
 				71B20A352944D222000C4F7F /* CurrencyTableViewCell.swift in Sources */,
+				71BA67772987ED30006D40A6 /* ConverterCell.swift in Sources */,
 				713825F5294FA8DF001B9594 /* FavoriteViewCell.swift in Sources */,
 				71B23CAA294298FB00DC1888 /* FavoritesViewController.swift in Sources */,
 				716AE5F22943F26E00D656C5 /* Constants.swift in Sources */,
@@ -468,6 +519,7 @@
 				718AE02729453A5C009C41FA /* CurrencySheetVC.swift in Sources */,
 				71B23CA8294298FB00DC1888 /* SceneDelegate.swift in Sources */,
 				71C9FAA22942B46F00DF203C /* ConverterViewController.swift in Sources */,
+				7146E6D22986C6B60030B397 /* ValutesListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
