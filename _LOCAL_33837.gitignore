@@ -65,17 +65,7 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
-<<<<<<< HEAD
 ExchangeRate.xcodeproj/project.xcworkspace/xcuserdata/paulive.xcuserdatad/UserInterfaceState.xcuserstate
 .DS_Store
 .DS_Store
 .DS_Store
-=======
-
-.DS_Store
-ExchangeRate.xcodeproj/project.xcworkspace/xcuserdata/paulive.xcuserdatad/UserInterfaceState.xcuserstate
-*.xcuserstate
-*.plist
-ExchangeRate.xcodeproj/xcuserdata/paulive.xcuserdatad/xcschemes/xcschememanagement.plist
-*.xcuserstate
->>>>>>> development

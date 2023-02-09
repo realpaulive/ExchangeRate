@@ -82,6 +82,9 @@ extension ValutesListViewController: UITableViewDelegate {
             print("unknownSender")
         }
         
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.impactOccurred()
+        
         tableView.reloadData()
     }
 }

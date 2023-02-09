@@ -9,13 +9,15 @@ import UIKit
 
 class ConverterCell: UITableViewCell {
     
+    // MARK: - Outlets
     
-
     @IBOutlet weak var valuteImage: UIImageView!
     @IBOutlet weak var valuteKey: UILabel!
     @IBOutlet weak var valuteName: UILabel!
     @IBOutlet weak var valuteValue: UITextField!
     
+
+    // MARK: - Methods
     
     func setUpCell (valutes: Valutes, key: String) {
         self.valuteKey.text = key
@@ -26,8 +28,5 @@ class ConverterCell: UITableViewCell {
         self.valuteImage.layer.borderColor = CGColor(gray: 0.1, alpha: 1)
         
         self.valuteValue.text = valutes.currencyValueString
-        
     }
-    
-    
 }
