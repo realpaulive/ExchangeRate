@@ -5,6 +5,7 @@
 ## Build generated
 build/
 DerivedData/
+Alamofire-master/
 
 ## Various settings
 *.pbxuser
