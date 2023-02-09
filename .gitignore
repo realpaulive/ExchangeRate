@@ -69,3 +69,6 @@ fastlane/test_output
 ExchangeRate.xcodeproj/project.xcworkspace/xcuserdata/paulive.xcuserdatad/UserInterfaceState.xcuserstate
 ExchangeRate.xcodeproj/project.xcworkspace/xcuserdata/paulive.xcuserdatad/UserInterfaceState.xcuserstate
 .DS_Store
+*.xcuserstate
+*.plist
+ExchangeRate.xcodeproj/xcuserdata/paulive.xcuserdatad/xcschemes/xcschememanagement.plist
