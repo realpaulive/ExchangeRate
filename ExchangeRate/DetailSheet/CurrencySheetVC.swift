@@ -16,6 +16,7 @@ class CurrencySheetViewController: UIViewController {
     var isLastVCwasFavoriteVC = false
     var valutes = [String : Valutes]()
     var favoritesContainsValute = false
+    var converterContainsValute = false
     
     // MARK: - Outlets
     
@@ -56,12 +57,23 @@ class CurrencySheetViewController: UIViewController {
             addToFavorite.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal)
             favoritesContainsValute.toggle()
         }
+        if Constants.converterKeys.contains(self.key) {
+            addToConverter.setTitle("Удалить из конвертера", for: .normal)
+            addToConverter.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal)
+            converterContainsValute.toggle()
+        }
     }
     
     //MARK: - Actions
     
     @IBAction func addToFavorite(_ sender: UIButton) {
         addToFavoriteButtonPressed(favoritesContainsValute: favoritesContainsValute)
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.impactOccurred()
+    }
+    
+    @IBAction func addToConverter(_ sender: UIButton) {
+        addToConverterButtonPressed(converterContainsValute: converterContainsValute)
         let generator = UIImpactFeedbackGenerator(style: .medium)
         generator.impactOccurred()
     }
@@ -118,6 +130,29 @@ extension CurrencySheetViewController {
                 print("deleted")
                 self.dismiss(animated: true)
             }
+        }
+    }
+    
+    func addToConverterButtonPressed(converterContainsValute: Bool) {
+        if !converterContainsValute {
+            Constants.converterKeys.append(self.key)
+            self.converterContainsValute.toggle()
+            
+            addToConverter.setTitle("Удалить из конвертрев", for: .normal)
+            addToConverter.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal)
+            
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadConverter"), object: nil)
+        } else {
+            guard let index = Constants.converterKeys.firstIndex(of: self.key) else { return }
+            
+            Constants.converterKeys.remove(at: index)
+            self.converterContainsValute.toggle()
+            
+            addToConverter.setTitle("Добавить в конвертер", for: .normal)
+            addToConverter.setImage(UIImage(systemName: "plusminus.circle.fill"), for: .normal)
+            
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadConverter"), object: nil)
+            
         }
     }
 }

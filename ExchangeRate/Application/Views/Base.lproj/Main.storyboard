@@ -528,9 +528,12 @@
                                         <rect key="frame" x="187" y="0.0" width="171" height="54.333333333333336"/>
                                         <color key="tintColor" systemColor="systemOrangeColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="tinted" imagePlacement="trailing" title="Добавить к сравнению" imagePadding="8" titleAlignment="leading">
+                                        <buttonConfiguration key="configuration" style="tinted" imagePlacement="trailing" title="Добавить в конвертер" imagePadding="8" titleAlignment="leading">
                                             <imageReference key="image" image="plusminus.circle.fill" catalog="system" symbolScale="large" renderingMode="template"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="addToConverter:" destination="bfs-53-jAg" eventType="touchUpInside" id="7Yx-i0-Izc"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
