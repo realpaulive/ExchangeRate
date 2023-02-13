@@ -12,12 +12,15 @@ class CurrenciesViewController: UITableViewController {
     // MARK: - Values
     
     let searchController = UISearchController(searchResultsController: nil)
-    var valutes = [String : Valutes]()
+    private var valutes = [String : Valutes]()
     
     // MARK: - ViewMethods
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.refreshControl = myRefreshControl
+        
         FetchRequest.currencyRequest { valutes in
             self.valutes = valutes
             DispatchQueue.main.async {
@@ -113,4 +116,26 @@ extension CurrenciesViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print(searchText)
     }
+}
+
+// MARK: - Extension: RefreshControl
+
+extension CurrenciesViewController {
+    var myRefreshControl: UIRefreshControl {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshValues(sender:)), for: .valueChanged)
+        return refreshControl
+    }
+    
+    @objc
+    private func refreshValues(sender: UIRefreshControl) {
+        FetchRequest.currencyRequest { valutes in
+            self.valutes = valutes
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                sender.endRefreshing()
+            }
+        }
+    }
+    
 }

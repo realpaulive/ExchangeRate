@@ -11,7 +11,7 @@ class FavoritesViewController: UIViewController {
     
     // MARK: - Values
     
-    var valutes = [String : Valutes]()
+    private var valutes = [String : Valutes]()
     
     // MARK: - Outlets
     
@@ -26,11 +26,13 @@ class FavoritesViewController: UIViewController {
     }
     
     // MARK: - ViewMethods
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadFavorites), name: NSNotification.Name(rawValue: "reloadFavorites"), object: nil)
+        
+        collectionView.refreshControl = myRefreshControl
         
         FetchRequest.currencyRequest { valutes in
             self.valutes = valutes
@@ -47,8 +49,8 @@ class FavoritesViewController: UIViewController {
     }
     
     // MARK: - Methods
-
-    @objc func reloadFavorites(notification: NSNotification){
+    
+    @objc private func reloadFavorites(notification: NSNotification){
         hideNoValutesLabel()
         self.collectionView.reloadData()
     }
@@ -115,8 +117,8 @@ extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-            return 8
-        }
+        return 8
+    }
 }
 
 // MARK: - Extensions: DragDelegate
@@ -147,6 +149,28 @@ extension FavoritesViewController {
             self.noValutesButton.isHidden = true
         } else {
             self.noValutesButton.isHidden = false
+        }
+    }
+}
+
+// MARK: - Extension: RefreshControl
+
+extension FavoritesViewController {
+    var myRefreshControl: UIRefreshControl {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshValues(sender:)), for: .valueChanged)
+        return refreshControl
+    }
+    
+    @objc
+    private func refreshValues(sender: UIRefreshControl) {
+        FetchRequest.currencyRequest { valutes in
+            self.valutes = valutes
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+                sender.endRefreshing()
+            }
+            print("refreshed")
         }
     }
 }

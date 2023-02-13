@@ -13,7 +13,7 @@ class ValutesListViewController: UIViewController {
     
     var isFromFavorites = false
     var isFromConverter = false
-    var valutes = [String : Valutes]()
+    private var valutes = [String : Valutes]()
     
     // MARK: - Outlets
     
@@ -134,7 +134,7 @@ extension ValutesListViewController {
         case unknownSender
     }
     
-    func configuration (key: String) -> ValutesListConfiguration {
+    private func configuration (key: String) -> ValutesListConfiguration {
         if isFromFavorites && Constants.favoritesKeys.contains(key) {
             return ValutesListConfiguration.favoritesContainsKey
         } else if isFromFavorites && !Constants.favoritesKeys.contains(key) {

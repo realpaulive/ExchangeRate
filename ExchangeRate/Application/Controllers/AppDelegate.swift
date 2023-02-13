@@ -15,6 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         Constants.loadFavorites()
         
+        FetchRequest.currencyRequest { valutes in
+            FetchRequest.valutes = valutes
+        }
+        
         return true
     }
 

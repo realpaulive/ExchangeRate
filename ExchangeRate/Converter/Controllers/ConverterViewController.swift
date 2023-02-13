@@ -11,8 +11,8 @@ class ConverterViewController: UIViewController {
     
     // MARK: - Values
     
-    var valutes = [String : Valutes]()
-
+    private var valutes = [String : Valutes]()
+    
     // MARK: - Outlets
     
     @IBOutlet weak var converterTableView: UITableView! {
@@ -35,7 +35,7 @@ class ConverterViewController: UIViewController {
                 self.converterTableView.reloadData()
             }
         }
-
+        
     }
     
     @objc func reloadConverter(notification: NSNotification){

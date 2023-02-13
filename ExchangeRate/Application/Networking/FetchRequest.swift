@@ -11,10 +11,13 @@ import Alamofire
 // MARK: - AFRequest
 
 class FetchRequest {
+    
+    static var valutes = [String : Valutes]()
+    
     static func currencyRequest (completion: @escaping ([String : Valutes]) -> ()) {
         let urlString = "https://www.cbr-xml-daily.ru/daily_json.js"
         guard let url = URL(string: urlString) else { return }
-        AF.request(url, method: .get).validate().responseDecodable(of: Response.self, queue: .global(qos: .utility)) { response in
+        AF.request(url, method: .get).validate().responseDecodable(of: Response.self, queue: .global(qos: .userInitiated)) { response in
             switch response.result {
             case .success(let value):
                 let keys = Constants.currencyKeys
