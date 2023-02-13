@@ -5,6 +5,6 @@ This application was created to view the exchange rate and also convert them at 
 MVC arcitecture
 
 Whats used:
-Alamofire GET request
-UIKit (IB)
-CocoaPods
+- Alamofire GET request
+- UIKit (IB)
+- CocoaPods
