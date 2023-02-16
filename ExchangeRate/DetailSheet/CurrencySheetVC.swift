@@ -38,7 +38,7 @@ class CurrencySheetViewController: UIViewController {
         sheetPresentationController!.delegate = self
         
         
-        FetchRequest.currencyRequest { valutes in
+        FetchRequest.shared.currencyRequest { valutes in
             self.valutes = valutes
             
             DispatchQueue.main.async {

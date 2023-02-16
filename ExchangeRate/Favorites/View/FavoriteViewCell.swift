@@ -32,7 +32,7 @@ class FavoriteViewCell: UICollectionViewCell {
         self.dailyChangeValue.textColor = UIColor(named: valutes.dailyChangeColor)
         self.currencyImage.image = UIImage(named: key)
         self.currencyImage.layer.cornerRadius = 16
-        self.currencyImage.layer.borderWidth = 0.2
-        self.currencyImage.layer.borderColor = CGColor(gray: 0.1, alpha: 1)
+//        self.currencyImage.layer.borderWidth = 0.2
+//        self.currencyImage.layer.borderColor = CGColor(gray: 0.1, alpha: 1)
     }
 }

@@ -29,7 +29,7 @@ class ConverterViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadConverter), name: NSNotification.Name(rawValue: "reloadConverter"), object: nil)
         
-        FetchRequest.currencyRequest { valutes in
+        FetchRequest.shared.currencyRequest { valutes in
             self.valutes = valutes
             DispatchQueue.main.async {
                 self.converterTableView.reloadData()

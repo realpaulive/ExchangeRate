@@ -1,0 +1,20 @@
+PODS:
+  - SkeletonView (1.30.4)
+  - SPAlert (4.2.0)
+
+DEPENDENCIES:
+  - SkeletonView
+  - SPAlert
+
+SPEC REPOS:
+  trunk:
+    - SkeletonView
+    - SPAlert
+
+SPEC CHECKSUMS:
+  SkeletonView: 5a050f6411e697abd4cda0a8d767013399dccd69
+  SPAlert: 735da1f16a887e294719217572ce1f936d8c8782
+
+PODFILE CHECKSUM: f8c1bc8be0d23122c2fcff10464cb9e1a3d3815a
+
+COCOAPODS: 1.8.4

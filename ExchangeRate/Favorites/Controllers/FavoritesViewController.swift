@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import SPAlert
+import SkeletonView
 
 class FavoritesViewController: UIViewController {
     
     // MARK: - Values
     
-    private var valutes = [String : Valutes]()
+    private var valutes: [String : Valutes]?
+    private let reusableCellIdentifier = "FavoriteCell"
     
     // MARK: - Outlets
     
@@ -32,20 +35,26 @@ class FavoritesViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadFavorites), name: NSNotification.Name(rawValue: "reloadFavorites"), object: nil)
         
+    
         collectionView.refreshControl = myRefreshControl
         
-        FetchRequest.currencyRequest { valutes in
-            self.valutes = valutes
-            DispatchQueue.main.async {
+        collectionView.isSkeletonable = true
+        collectionView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: UIColor(named: "Skeletonable")!), transition: .crossDissolve(0.4))
+        
+        FetchRequest.shared.currencyRequest { valutes in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.valutes = valutes
+                self.collectionView.hideSkeleton(transition: .crossDissolve(0.4))
                 self.collectionView.reloadData()
             }
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         hideNoValutesLabel()
-        self.collectionView.reloadData()
+        
     }
     
     // MARK: - Methods
@@ -70,7 +79,16 @@ class FavoritesViewController: UIViewController {
     }
     
     @IBAction func prefrensesAction(_ sender: Any) {
-        self.collectionView.reloadData()
+        
+        let alertView = SPAlertView(title: "Connection error", preset: .error)
+        alertView.layout.iconSize = CGSize(width: 24, height: 24)
+        alertView.cornerRadius = 22
+        alertView.duration = 1
+        alertView.dismissInTime = true
+        
+        alertView.present()
+        
+        
     }
 }
 
@@ -82,12 +100,11 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteCell", for: indexPath) as! FavoriteViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableCellIdentifier, for: indexPath) as! FavoriteViewCell
         
-        let key2 = Constants.favoritesKeys[indexPath.row]
-        let value = self.valutes[key2]
-        guard let values = value else { return cell }
-        cell.setUpFavoriteCell(valutes: values, key: key2)
+        let key = Constants.favoritesKeys[indexPath.row]
+        guard let value = self.valutes?[key] else { return cell }
+        cell.setUpFavoriteCell(valutes: value, key: key)
         cell.backgroundColor = UIColor(named: "LightGray")
         return cell
     }
@@ -112,9 +129,11 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
 
 extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         let width = self.view.frame.width - 32
         return CGSize(width: width, height: 64)
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 8
@@ -133,7 +152,7 @@ extension FavoritesViewController: UICollectionViewDragDelegate {
     // Helper method
     private func dragItem(forItemAt indexPath: IndexPath) -> UIDragItem {
         let imageName = Constants.favoritesKeys[indexPath.row]
-        let image = UIImage(named: imageName)
+//        let image = UIImage(named: imageName)
         let itemProvider = NSItemProvider(object: imageName as NSItemProviderWriting)
         let dragItem = UIDragItem(itemProvider: itemProvider)
         dragItem.localObject = imageName
@@ -164,13 +183,35 @@ extension FavoritesViewController {
     
     @objc
     private func refreshValues(sender: UIRefreshControl) {
-        FetchRequest.currencyRequest { valutes in
-            self.valutes = valutes
-            DispatchQueue.main.async {
+        self.valutes = nil
+        self.collectionView.reloadData()
+        self.collectionView.startSkeletonAnimation()
+        self.collectionView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: UIColor(named: "Skeletonable")!), transition: .crossDissolve(0.4))
+        
+        FetchRequest.shared.currencyRequest { valutes in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                self.valutes = valutes
+                self.collectionView.hideSkeleton(transition: .crossDissolve(0.4))
                 self.collectionView.reloadData()
-                sender.endRefreshing()
             }
-            print("refreshed")
         }
+        
+        sender.endRefreshing()
     }
+}
+
+
+// MARK: - Extension: SkeletonViewDataSourse
+
+extension FavoritesViewController: SkeletonCollectionViewDataSource {
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> SkeletonView.ReusableCellIdentifier {
+        return reusableCellIdentifier
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return Constants.favoritesKeys.count
+    }
+    
+    
 }

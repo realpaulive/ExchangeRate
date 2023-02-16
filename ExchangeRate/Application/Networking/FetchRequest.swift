@@ -8,13 +8,15 @@
 import Foundation
 import Alamofire
 
-// MARK: - AFRequest
+// MARK: - AFRequest (SingleTone)
 
 class FetchRequest {
     
-    static var valutes = [String : Valutes]()
+    static let shared = FetchRequest()
     
-    static func currencyRequest (completion: @escaping ([String : Valutes]) -> ()) {
+    var valutes: [String : Valutes]?
+    
+    func currencyRequest (completion: @escaping ([String : Valutes]) -> ()) {
         let urlString = "https://www.cbr-xml-daily.ru/daily_json.js"
         guard let url = URL(string: urlString) else { return }
         AF.request(url, method: .get).validate().responseDecodable(of: Response.self, queue: .global(qos: .userInitiated)) { response in
@@ -25,10 +27,14 @@ class FetchRequest {
                 for key in keys {
                     valutes[key] = Valutes(currentRateData: value.valute[key]!)
                 }
+                self.valutes = valutes
                 completion(valutes)
+                
             case .failure(let error):
                 print(error)
             }
         }
     }
+    
+    private init() { }
 }

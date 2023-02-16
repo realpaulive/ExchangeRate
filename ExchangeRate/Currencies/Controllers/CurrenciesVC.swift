@@ -6,13 +6,15 @@
 //
 
 import UIKit
+import SkeletonView
 
 class CurrenciesViewController: UITableViewController {
     
     // MARK: - Values
     
-    let searchController = UISearchController(searchResultsController: nil)
-    private var valutes = [String : Valutes]()
+    private let searchController = UISearchController(searchResultsController: nil)
+    private var valutes: [String : Valutes]?
+    private let reusableCellIdentifier = "Cell"
     
     // MARK: - ViewMethods
     
@@ -21,9 +23,13 @@ class CurrenciesViewController: UITableViewController {
         
         self.refreshControl = myRefreshControl
         
-        FetchRequest.currencyRequest { valutes in
-            self.valutes = valutes
+        tableView.isSkeletonable = true
+        tableView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: UIColor(named: "Skeletonable")!), transition: .crossDissolve(0.4))
+        
+        FetchRequest.shared.currencyRequest { valutes in
             DispatchQueue.main.async {
+                self.valutes = valutes
+                self.tableView.hideSkeleton(transition: .crossDissolve(0.4))
                 self.tableView.reloadData()
             }
         }
@@ -43,20 +49,21 @@ class CurrenciesViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
         return "Время"
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return self.valutes.count
+        return Constants.currencyKeys.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CurrencyTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: reusableCellIdentifier, for: indexPath) as! CurrencyTableViewCell
         cell.backgroundColor = UIColor(named: "LightGray")
         
         let key = Constants.currencyKeys[indexPath.row]
-        guard let value = valutes[key] else { return cell}
+        guard let value = self.valutes?[key] else { return cell}
         cell.setUpCell(valutes: value, key: key)
         
         return cell
@@ -129,13 +136,33 @@ extension CurrenciesViewController {
     
     @objc
     private func refreshValues(sender: UIRefreshControl) {
-        FetchRequest.currencyRequest { valutes in
-            self.valutes = valutes
-            DispatchQueue.main.async {
+        
+        self.valutes = nil
+        tableView.reloadData()
+        tableView.startSkeletonAnimation()
+        tableView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: UIColor(named: "Skeletonable")!), transition: .crossDissolve(0.4))
+        
+        FetchRequest.shared.currencyRequest { valutes in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                self.valutes = valutes
+                self.tableView.hideSkeleton(transition: .crossDissolve(0.4))
                 self.tableView.reloadData()
-                sender.endRefreshing()
             }
         }
+        
+        sender.endRefreshing()
+    }
+}
+
+// MARK: - Extension: SkeletonViewDataSourse
+
+extension CurrenciesViewController: SkeletonTableViewDataSource {
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return reusableCellIdentifier
+    }
+    func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
     }
     
+
 }

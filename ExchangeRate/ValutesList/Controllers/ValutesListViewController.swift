@@ -28,7 +28,7 @@ class ValutesListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        FetchRequest.currencyRequest { valutes in
+        FetchRequest.shared.currencyRequest { valutes in
             self.valutes = valutes
             DispatchQueue.main.async {
                 self.valutesList.reloadData()
