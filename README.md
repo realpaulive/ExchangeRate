@@ -5,10 +5,19 @@ This application was created to view the exchange rate and also convert them at 
 MVC architecture
 
 Whats used:
-- Alamofire GET request (+ JSON Decoding)
-- UIKit (IB)
-- CocoaPods (Skeleton View implemeted)
 
++ UIKit (Interface Builder)
+    + Table & Collection Views
+    + Dragging
+    + Refresh Controller
+    + Search Bar
+    + Sheet Views
++ CocoaPods
+    + Skeleton View
+    + Error Notifications
+- Alamofire GET request
+- JSON Parsing & Decoding
+- UserDefaults saves favorite currencies
 
 ## This is how the UI looks:
 
