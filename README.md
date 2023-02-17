@@ -5,6 +5,11 @@ This application was created to view the exchange rate and also convert them at 
 MVC architecture
 
 Whats used:
-- Alamofire GET request
+- Alamofire GET request (+ JSON Decoding)
 - UIKit (IB)
-- CocoaPods
+- CocoaPods (Skeleton View implemeted)
+
+
+## This is how the UI looks:
+
+![1](https://user-images.githubusercontent.com/70806069/219720235-4391c002-4cd6-493c-9368-56c78c843743.png) ![3](https://user-images.githubusercontent.com/70806069/219720243-f446b410-3cf6-4ef3-9203-b87f6c2c4a73.png) ![4](https://user-images.githubusercontent.com/70806069/219720248-201c7973-ced7-49ab-b559-b9adbb3598fb.png) ![5](https://user-images.githubusercontent.com/70806069/219720254-cc4ea8e6-dc65-46fb-abc8-4cdd5726a11f.png)
