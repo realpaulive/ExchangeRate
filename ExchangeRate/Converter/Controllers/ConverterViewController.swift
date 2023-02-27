@@ -13,7 +13,6 @@ class ConverterViewController: UIViewController {
     // MARK: - Values
     
     private var valutes = [String : Valutes]()
-    private let reusableCellIdentifier = "ConverterCell"
     
     // MARK: - Outlets
     
@@ -35,8 +34,8 @@ class ConverterViewController: UIViewController {
         converterTableView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: UIColor(named: "Skeletonable")!), transition: .crossDissolve(0.4))
         
         
-        FetchRequest.shared.currencyRequest { valutes in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        FetchRequest.shared.currencyRequest { [unowned self] valutes, _ in
+            DispatchQueue.main.async {
                 self.valutes = valutes
                 self.converterTableView.hideSkeleton(transition: .crossDissolve(0.4))
                 self.converterTableView.reloadData()
@@ -69,16 +68,20 @@ class ConverterViewController: UIViewController {
 extension ConverterViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let TrashAction = UIContextualAction(style: .normal, title:  "Trash", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-            print("Update action ...")
             let cell = tableView.cellForRow(at: indexPath) as! ConverterCell
             guard let key = cell.valuteKey.text else { return }
             guard let index = Constants.converterKeys.firstIndex(of: key) else { return }
             Constants.converterKeys.remove(at: index)
-            tableView.reloadData()
+            tableView.deleteRows(at: [indexPath], with: .left)
+           
             success(true)
         })
         TrashAction.backgroundColor = .red
         return UISwipeActionsConfiguration(actions: [TrashAction])
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
     
 }
@@ -91,26 +94,12 @@ extension ConverterViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reusableCellIdentifier, for: indexPath) as! ConverterCell
+        let identifier = ConverterCell().reusableCellIdentifier
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! ConverterCell
         let key = Constants.converterKeys[indexPath.row]
         guard let value = valutes[key] else { return cell}
         cell.setUpCell(valutes: value, key: key)
         
         return cell
     }
-}
-
-
-// MARK: - Extension: SkeletonViewDataSourse
-
-extension ConverterViewController: SkeletonTableViewDataSource {
-    
-    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
-        return reusableCellIdentifier
-    }
-    
-    func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
-    }
-    
 }

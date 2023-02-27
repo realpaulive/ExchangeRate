@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class ValutesListViewController: UIViewController {
     
@@ -28,13 +29,17 @@ class ValutesListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        FetchRequest.shared.currencyRequest { valutes in
-            self.valutes = valutes
+        
+        valutesList.isSkeletonable = true
+        valutesList.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: UIColor(named: "Skeletonable")!), transition: .crossDissolve(0.4))
+        
+        FetchRequest.shared.currencyRequest { [unowned self] valutes, _ in
             DispatchQueue.main.async {
+                self.valutes = valutes
+                self.valutesList.hideSkeleton(transition: .crossDissolve(0.4))
                 self.valutesList.reloadData()
             }
         }
-        
     }
     
     // MARK: - Actions
@@ -98,8 +103,8 @@ extension ValutesListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TinyValutesCell", for: indexPath) as! TinyValutesCell
+        let identifier = TinyValutesCell().reusableCellIdentifier
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! TinyValutesCell
         let key = Constants.currencyKeys[indexPath.row]
         guard let value = valutes[key] else { return cell}
         cell.setUpCell(valutes: value, key: key)

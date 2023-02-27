@@ -10,6 +10,10 @@ import UIKit
 //Need to create collectionView
 
 class FavoriteViewCell: UICollectionViewCell {
+    
+    // MARK: - Identifier
+    
+    let reusableCellIdentifier = "FavoriteCell"
 
     // MARK: - Outlets
     

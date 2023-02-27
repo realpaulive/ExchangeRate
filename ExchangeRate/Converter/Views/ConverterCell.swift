@@ -9,6 +9,10 @@ import UIKit
 
 class ConverterCell: UITableViewCell {
     
+    // MARK: - Identifier
+    
+    let reusableCellIdentifier = "ConverterCell"
+    
     // MARK: - Outlets
     
     @IBOutlet weak var valuteImage: UIImageView!

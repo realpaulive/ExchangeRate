@@ -13,10 +13,8 @@ import Alamofire
 class FetchRequest {
     
     static let shared = FetchRequest()
-    
-    var valutes: [String : Valutes]?
-    
-    func currencyRequest (completion: @escaping ([String : Valutes]) -> ()) {
+  
+    func currencyRequest (completion: @escaping ([String : Valutes], String) -> ()) {
         let urlString = "https://www.cbr-xml-daily.ru/daily_json.js"
         guard let url = URL(string: urlString) else { return }
         AF.request(url, method: .get).validate().responseDecodable(of: Response.self, queue: .global(qos: .userInitiated)) { response in
@@ -27,8 +25,8 @@ class FetchRequest {
                 for key in keys {
                     valutes[key] = Valutes(currentRateData: value.valute[key]!)
                 }
-                self.valutes = valutes
-                completion(valutes)
+                let timestamp = TimeStamp().lastUpdate(timeString: value.timestamp)  
+                completion(valutes, timestamp)
                 
             case .failure(let error):
                 print(error)

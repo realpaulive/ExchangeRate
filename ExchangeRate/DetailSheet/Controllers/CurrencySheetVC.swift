@@ -15,9 +15,10 @@ class CurrencySheetViewController: UIViewController {
     var key: String = "USD"
     var isLastVCwasFavoriteVC = false
     var valutes = [String : Valutes]()
+    var lastUpdateString: String?
     var favoritesContainsValute = false
     var converterContainsValute = false
-    
+
     // MARK: - Outlets
     
     @IBOutlet weak var currencyName: UILabel!
@@ -38,8 +39,9 @@ class CurrencySheetViewController: UIViewController {
         sheetPresentationController!.delegate = self
         
         
-        FetchRequest.shared.currencyRequest { valutes in
+        FetchRequest.shared.currencyRequest { [unowned self] valutes, timestamp in
             self.valutes = valutes
+            self.lastUpdateString = timestamp
             
             DispatchQueue.main.async {
                 guard let valute = valutes[self.key] else {
@@ -103,7 +105,7 @@ extension CurrencySheetViewController {
         self.dailyChangePercent.textColor = UIColor(named: valute.dailyChangeColor)
         self.dailyChangeValue.text = valute.dailyChangeValueString
         self.dailyChangeValue.textColor = UIColor(named: valute.dailyChangeColor)
-        self.lastUpdate.text = "Дата и время"
+        self.lastUpdate.text = lastUpdateString
     }
     
     func addToFavoriteButtonPressed(favoritesContainsValute: Bool) {

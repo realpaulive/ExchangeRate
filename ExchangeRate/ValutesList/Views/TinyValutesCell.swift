@@ -8,11 +8,19 @@
 import UIKit
 
 class TinyValutesCell: UITableViewCell {
+    
+    // MARK: - Identifier
+    
+    let reusableCellIdentifier = "TinyValutesCell"
+    
+    // MARK: - Outlets
 
     @IBOutlet weak var valuteImage: UIImageView!
     @IBOutlet weak var valuteKey: UILabel!
     @IBOutlet weak var valuteName: UILabel!
     @IBOutlet weak var isAtSomeList: UIImageView!
+    
+    // MARK: - Methods
     
     func setUpCell (valutes: Valutes, key: String) {
         self.valuteKey?.text = key

@@ -14,7 +14,7 @@ class FavoritesViewController: UIViewController {
     // MARK: - Values
     
     private var valutes: [String : Valutes]?
-    private let reusableCellIdentifier = "FavoriteCell"
+    private var lastUpdate: String?
     
     // MARK: - Outlets
     
@@ -23,7 +23,6 @@ class FavoritesViewController: UIViewController {
         didSet {
             collectionView.delegate = self
             collectionView.dataSource = self
-            collectionView.dragDelegate = self
             collectionView.dragInteractionEnabled = true
         }
     }
@@ -41,26 +40,26 @@ class FavoritesViewController: UIViewController {
         collectionView.isSkeletonable = true
         collectionView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: UIColor(named: "Skeletonable")!), transition: .crossDissolve(0.4))
         
-        FetchRequest.shared.currencyRequest { valutes in
+        FetchRequest.shared.currencyRequest { [unowned self] valutes, timestamp in
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.valutes = valutes
+                self.lastUpdate = timestamp
                 self.collectionView.hideSkeleton(transition: .crossDissolve(0.4))
                 self.collectionView.reloadData()
             }
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        hideNoValutesLabel()
+        showOrHideLabels()
         
     }
     
     // MARK: - Methods
     
     @objc private func reloadFavorites(notification: NSNotification){
-        hideNoValutesLabel()
+        showOrHideLabels()
         self.collectionView.reloadData()
     }
     
@@ -100,7 +99,8 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableCellIdentifier, for: indexPath) as! FavoriteViewCell
+        let identifier = FavoriteViewCell().reusableCellIdentifier
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! FavoriteViewCell
         
         let key = Constants.favoritesKeys[indexPath.row]
         guard let value = self.valutes?[key] else { return cell }
@@ -123,6 +123,20 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
         }
         self.present(sheetVC, animated: true)
     }
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+
+        if let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeader", for: indexPath) as? SectionHeader {
+            sectionHeader.sectionHeaderlabel.text = self.lastUpdate
+            return sectionHeader
+        }
+        
+        return UICollectionReusableView()
+    }
+    
 }
 
 // MARK: - Extensions: LayoutSettingUp
@@ -140,30 +154,10 @@ extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-// MARK: - Extensions: DragDelegate
-
-extension FavoritesViewController: UICollectionViewDragDelegate {
-    func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
-        let dragItem = self.dragItem(forItemAt: indexPath)
-        return [dragItem]
-    }
-    
-    
-    // Helper method
-    private func dragItem(forItemAt indexPath: IndexPath) -> UIDragItem {
-        let imageName = Constants.favoritesKeys[indexPath.row]
-//        let image = UIImage(named: imageName)
-        let itemProvider = NSItemProvider(object: imageName as NSItemProviderWriting)
-        let dragItem = UIDragItem(itemProvider: itemProvider)
-        dragItem.localObject = imageName
-        return dragItem
-    }
-}
-
 // MARK: - Extensions: BusinessLogic
 
 extension FavoritesViewController {
-    func hideNoValutesLabel() {
+    func showOrHideLabels() {
         if Constants.favoritesKeys != [] {
             self.noValutesButton.isHidden = true
         } else {
@@ -188,9 +182,10 @@ extension FavoritesViewController {
         self.collectionView.startSkeletonAnimation()
         self.collectionView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: UIColor(named: "Skeletonable")!), transition: .crossDissolve(0.4))
         
-        FetchRequest.shared.currencyRequest { valutes in
+        FetchRequest.shared.currencyRequest { [unowned self] valutes, timestamp in
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
                 self.valutes = valutes
+                self.lastUpdate = timestamp
                 self.collectionView.hideSkeleton(transition: .crossDissolve(0.4))
                 self.collectionView.reloadData()
             }
@@ -201,17 +196,4 @@ extension FavoritesViewController {
 }
 
 
-// MARK: - Extension: SkeletonViewDataSourse
 
-extension FavoritesViewController: SkeletonCollectionViewDataSource {
-    
-    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> SkeletonView.ReusableCellIdentifier {
-        return reusableCellIdentifier
-    }
-    
-    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Constants.favoritesKeys.count
-    }
-    
-    
-}

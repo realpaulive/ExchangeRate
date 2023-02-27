@@ -9,6 +9,10 @@ import UIKit
 
 class CurrencyTableViewCell: UITableViewCell {
     
+    // MARK: - Identifier
+    
+    let reusableCellIdentifier = "Cell"
+    
     // MARK: - Outlets
     
     @IBOutlet weak var currencyImage: UIImageView!
