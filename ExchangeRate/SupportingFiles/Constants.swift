@@ -23,7 +23,7 @@ struct Constants {
     static var converterKeys = ["USD", "EUR"]
 }
 
-//MARK: - UserDefaults
+//MARK: - Saving favorite currencies
 
 extension Constants {
     

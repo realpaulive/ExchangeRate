@@ -48,10 +48,10 @@ class CurrenciesViewController: UITableViewController {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        return "Время"
-    }
+//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//
+//        return "Время"
+//    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -136,7 +136,11 @@ extension CurrenciesViewController {
     
     @objc
     private func refreshValues(sender: UIRefreshControl) {
-        
+        update(tableView: self.tableView)
+        sender.endRefreshing()
+    }
+    
+    func update(tableView: UITableView) {
         self.valutes = nil
         tableView.reloadData()
         tableView.startSkeletonAnimation()
@@ -145,13 +149,12 @@ extension CurrenciesViewController {
         FetchRequest.shared.currencyRequest { valutes in
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
                 self.valutes = valutes
-                self.tableView.hideSkeleton(transition: .crossDissolve(0.4))
-                self.tableView.reloadData()
+                tableView.hideSkeleton(transition: .crossDissolve(0.4))
+                tableView.reloadData()
             }
         }
-        
-        sender.endRefreshing()
     }
+    
 }
 
 // MARK: - Extension: SkeletonViewDataSourse

@@ -105,7 +105,7 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
         let key = Constants.favoritesKeys[indexPath.row]
         guard let value = self.valutes?[key] else { return cell }
         cell.setUpFavoriteCell(valutes: value, key: key)
-        cell.backgroundColor = UIColor(named: "LightGray")
+//        cell.backgroundColor = UIColor(named: "LightGray")
         return cell
     }
     

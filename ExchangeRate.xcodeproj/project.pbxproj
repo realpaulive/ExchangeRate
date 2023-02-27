@@ -131,8 +131,8 @@
 		713825E6294F4A83001B9594 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
-				713825F2294FA841001B9594 /* Controllers */,
 				713825F1294FA838001B9594 /* View */,
+				713825F2294FA841001B9594 /* Controllers */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -177,7 +177,7 @@
 		713825F3294FA84F001B9594 /* DetailSheet */ = {
 			isa = PBXGroup;
 			children = (
-				718AE02629453A5C009C41FA /* CurrencySheetVC.swift */,
+				71D77D9629AB604D007158DC /* Controllers */,
 			);
 			path = DetailSheet;
 			sourceTree = "<group>";
@@ -275,6 +275,14 @@
 			isa = PBXGroup;
 			children = (
 				71B23CBE29429A7200DC1888 /* CurrenciesVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		71D77D9629AB604D007158DC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				718AE02629453A5C009C41FA /* CurrencySheetVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
