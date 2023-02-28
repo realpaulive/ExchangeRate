@@ -14,12 +14,15 @@ final class ConverterViewController: UIViewController {
     
     private var valutes = [String : Valutes]()
     
+    
     // MARK: - Outlets
     
     @IBOutlet weak var converterTableView: UITableView! {
         didSet {
             converterTableView.delegate = self
             converterTableView.dataSource = self
+            converterTableView.sectionHeaderHeight = 60
+            converterTableView.register(UINib(nibName: "ConverterHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "ConverterHeaderView")
         }
     }
     
@@ -27,6 +30,7 @@ final class ConverterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadConverter), name: NSNotification.Name(rawValue: "reloadConverter"), object: nil)
       
@@ -42,6 +46,8 @@ final class ConverterViewController: UIViewController {
                 self.converterTableView.reloadData()
             }
         }
+        
+        
         
     }
     
@@ -97,11 +103,24 @@ extension ConverterViewController: UITableViewDataSource {
         cell.valuteValue.delegate = self
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = converterTableView.dequeueReusableHeaderFooterView(withIdentifier: "ConverterHeaderView") as! ConverterHeaderView
+        guard let valute = valutes["RUR"] else { return headerView }
+        headerView.setUpHeader(valutes: valute, key: "RUR", textFieldChange: nil)
+        headerView.valuteValue.delegate = self
+        return headerView
+    }
 }
 
 extension ConverterViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
+        
         return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.converterTableView.reloadData()
     }
 }

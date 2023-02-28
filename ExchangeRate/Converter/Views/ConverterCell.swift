@@ -40,8 +40,8 @@ final class ConverterCell: UITableViewCell {
         valuteImage.layer.borderWidth = 0.2
         valuteImage.layer.borderColor = CGColor(gray: 0.1, alpha: 1)
         
-        valuteValue.text = valutes.currencyValueString
-        valuteValue.placeholder = valutes.currencyValueString
+        valuteValue.text = String(0)
+        valuteValue.placeholder = String(0)
         valuteValue.keyboardType = .decimalPad
         valuteValue.clearsOnBeginEditing = true
         valuteValue.addDoneButtonToKeyboard()
@@ -51,5 +51,4 @@ final class ConverterCell: UITableViewCell {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         valuteValue.becomeFirstResponder()
     }
-   
 }

@@ -15,6 +15,8 @@
 		7144C81A29AE47C0001CE277 /* CurrenciesSearchBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144C81929AE47C0001CE277 /* CurrenciesSearchBarExtensions.swift */; };
 		7144C81D29AE492F001CE277 /* ValutesListTableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144C81C29AE492F001CE277 /* ValutesListTableViewExtensions.swift */; };
 		7144C81F29AE6CF2001CE277 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144C81E29AE6CF2001CE277 /* UITextFieldExtension.swift */; };
+		7144C82329AE8B25001CE277 /* ConverterHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144C82229AE8B25001CE277 /* ConverterHeaderView.swift */; };
+		7144C82529AE8B5E001CE277 /* ConverterHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7144C82429AE8B5D001CE277 /* ConverterHeaderView.xib */; };
 		7146E6D22986C6B60030B397 /* ValutesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7146E6D12986C6B60030B397 /* ValutesListViewController.swift */; };
 		7146E6DF2986CD750030B397 /* TinyValutesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7146E6DE2986CD750030B397 /* TinyValutesCell.swift */; };
 		714B616B29953ABA00FF57BE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 714B616A29953ABA00FF57BE /* Alamofire */; };
@@ -53,6 +55,8 @@
 		7144C81929AE47C0001CE277 /* CurrenciesSearchBarExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesSearchBarExtensions.swift; sourceTree = "<group>"; };
 		7144C81C29AE492F001CE277 /* ValutesListTableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValutesListTableViewExtensions.swift; sourceTree = "<group>"; };
 		7144C81E29AE6CF2001CE277 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		7144C82229AE8B25001CE277 /* ConverterHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterHeaderView.swift; sourceTree = "<group>"; };
+		7144C82429AE8B5D001CE277 /* ConverterHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConverterHeaderView.xib; sourceTree = "<group>"; };
 		7146E6D12986C6B60030B397 /* ValutesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValutesListViewController.swift; sourceTree = "<group>"; };
 		7146E6DE2986CD750030B397 /* TinyValutesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinyValutesCell.swift; sourceTree = "<group>"; };
 		7156620829ACA4D8006B9C25 /* SkeletonViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonViewExtensions.swift; sourceTree = "<group>"; };
@@ -329,6 +333,8 @@
 			isa = PBXGroup;
 			children = (
 				71BA67762987ED30006D40A6 /* ConverterCell.swift */,
+				7144C82229AE8B25001CE277 /* ConverterHeaderView.swift */,
+				7144C82429AE8B5D001CE277 /* ConverterHeaderView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -426,6 +432,7 @@
 				71EAB7D229539A5200A151A5 /* .gitignore in Resources */,
 				71B23CB5294298FF00DC1888 /* LaunchScreen.storyboard in Resources */,
 				71B23CB2294298FF00DC1888 /* Assets.xcassets in Resources */,
+				7144C82529AE8B5E001CE277 /* ConverterHeaderView.xib in Resources */,
 				71B23CAD294298FB00DC1888 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -504,6 +511,7 @@
 				7156620929ACA4D8006B9C25 /* SkeletonViewExtensions.swift in Sources */,
 				71C9FAA22942B46F00DF203C /* ConverterViewController.swift in Sources */,
 				7144C81D29AE492F001CE277 /* ValutesListTableViewExtensions.swift in Sources */,
+				7144C82329AE8B25001CE277 /* ConverterHeaderView.swift in Sources */,
 				7146E6D22986C6B60030B397 /* ValutesListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
