@@ -7,13 +7,13 @@
 
 import UIKit
 
-class CurrencySheetViewController: UIViewController {
+final class CurrencySheetViewController: UIViewController {
   
     
     // MARK: - Values
     
     var key: String = "USD"
-    var isLastVCwasFavoriteVC = false
+    var isFromFavorites = false
     var valutes = [String : Valutes]()
     var lastUpdateString: String?
     var favoritesContainsValute = false
@@ -128,7 +128,7 @@ extension CurrencySheetViewController {
             
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadFavorites"), object: nil)
             
-            if isLastVCwasFavoriteVC {
+            if isFromFavorites {
                 print("deleted")
                 self.dismiss(animated: true)
             }

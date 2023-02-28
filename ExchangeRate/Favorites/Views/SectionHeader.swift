@@ -7,8 +7,9 @@
 
 import UIKit
 
-class SectionHeader: UICollectionReusableView {
+final class SectionHeader: UICollectionReusableView {
     
     @IBOutlet weak var sectionHeaderlabel: UILabel!
         
 }
+

@@ -21,6 +21,8 @@ struct Constants {
     }
     
     static var converterKeys = ["USD", "EUR"]
+    
+    static var ruble = Valutes(currentRateData: Valute(id: "001", numCode: "001", charCode: "None", nominal: 1, name: "Российский рубль", value: 1, previous: 1))
 }
 
 //MARK: - Saving favorite currencies

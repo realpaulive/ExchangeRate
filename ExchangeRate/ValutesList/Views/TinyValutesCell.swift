@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TinyValutesCell: UITableViewCell {
+final class TinyValutesCell: UITableViewCell {
     
     // MARK: - Identifier
     

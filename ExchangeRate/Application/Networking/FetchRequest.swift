@@ -10,7 +10,7 @@ import Alamofire
 
 // MARK: - AFRequest (SingleTone)
 
-class FetchRequest {
+final class FetchRequest {
     
     static let shared = FetchRequest()
   

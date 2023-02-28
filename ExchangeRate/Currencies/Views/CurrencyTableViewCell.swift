@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CurrencyTableViewCell: UITableViewCell {
+final class CurrencyTableViewCell: UITableViewCell {
     
     // MARK: - Identifier
     
