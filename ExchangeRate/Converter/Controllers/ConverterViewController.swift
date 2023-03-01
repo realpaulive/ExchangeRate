@@ -13,6 +13,7 @@ final class ConverterViewController: UIViewController {
     // MARK: - Values
     
     private var valutes = [String : Valutes]()
+    var changedValue: String?
     
     
     // MARK: - Outlets
@@ -33,7 +34,11 @@ final class ConverterViewController: UIViewController {
         
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadConverter), name: NSNotification.Name(rawValue: "reloadConverter"), object: nil)
-      
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(textDidChange), name: NSNotification.Name(rawValue: "textDidChange"), object: nil)
+        
+        
+        
         converterTableView.isSkeletonable = true
         converterTableView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: UIColor(named: "Skeletonable")!), transition: .crossDissolve(0.4))
         
@@ -75,7 +80,7 @@ extension ConverterViewController: UITableViewDelegate {
             guard let index = Constants.converterKeys.firstIndex(of: key) else { return }
             Constants.converterKeys.remove(at: index)
             tableView.deleteRows(at: [indexPath], with: .left)
-           
+            
             success(true)
         })
         TrashAction.backgroundColor = .red
@@ -99,28 +104,40 @@ extension ConverterViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! ConverterCell
         let key = Constants.converterKeys[indexPath.row]
         guard let value = valutes[key] else { return cell}
-        cell.setUpCell(valutes: value, key: key)
-        cell.valuteValue.delegate = self
+        cell.setUpCell(valutes: value, key: key, textFieldChange: self.changedValue)
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = converterTableView.dequeueReusableHeaderFooterView(withIdentifier: "ConverterHeaderView") as! ConverterHeaderView
         guard let valute = valutes["RUR"] else { return headerView }
-        headerView.setUpHeader(valutes: valute, key: "RUR", textFieldChange: nil)
-        headerView.valuteValue.delegate = self
+        headerView.setUpHeader(valutes: valute, key: "RUR", textFieldChange: self.changedValue)
+        
+        
         return headerView
     }
 }
 
-extension ConverterViewController: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        
-        return true
+extension ConverterViewController {
+    
+    @objc func textDidChange(notification: NSNotification){
+        let value = returnArrayOfKeysValues(ncDict: notification.userInfo)
+        print(value)
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        self.converterTableView.reloadData()
+    func returnArrayOfKeysValues(ncDict dict: [AnyHashable : Any]?) -> [String] {
+        var arrayOfKeysValues: [String] = []
+        let keyArray = dict.map { Array($0.keys) }
+        let valuesArray = dict.map { Array($0.values) }
+        for key: String? in keyArray as? [String?] ?? [] {
+            guard let key = key else { return arrayOfKeysValues }
+            arrayOfKeysValues.append(key)
+        }
+        for value: String? in valuesArray as? [String?] ?? [] {
+            guard let value = value else { return arrayOfKeysValues }
+            arrayOfKeysValues.append(value)
+        }
+        return arrayOfKeysValues
     }
 }

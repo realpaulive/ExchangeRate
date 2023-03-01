@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -102,7 +101,7 @@
             <connections>
                 <outlet property="imageView" destination="KbA-AU-z78" id="nBo-yj-6IE"/>
                 <outlet property="nameLabel" destination="3oO-iw-zvK" id="axj-sQ-Kjb"/>
-                <outlet property="valuteKeyLabel" destination="54N-Bq-ruz" id="tX2-Au-B6t"/>
+                <outlet property="valuteKey" destination="54N-Bq-ruz" id="tX2-Au-B6t"/>
                 <outlet property="valuteValue" destination="bOa-Xe-t1m" id="ILv-hT-Hor"/>
             </connections>
             <point key="canvasLocation" x="135.38461538461539" y="20.616113744075829"/>
