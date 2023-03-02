@@ -22,8 +22,6 @@ final class ConverterViewController: UIViewController {
         didSet {
             converterTableView.delegate = self
             converterTableView.dataSource = self
-            converterTableView.sectionHeaderHeight = 60
-            converterTableView.register(UINib(nibName: "ConverterHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "ConverterHeaderView")
         }
     }
     
@@ -52,8 +50,6 @@ final class ConverterViewController: UIViewController {
             }
         }
         
-        
-        
     }
     
     @objc func reloadConverter(notification: NSNotification){
@@ -74,7 +70,14 @@ final class ConverterViewController: UIViewController {
 
 extension ConverterViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let TrashAction = UIContextualAction(style: .normal, title:  "Trash", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+        
+        let indexPathForRUR = IndexPath(row: 0, section: 0)
+        guard indexPath != indexPathForRUR else {
+            return nil
+        }
+        
+        let TrashAction = UIContextualAction(style: .normal, title:  "Удалить", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+           
             let cell = tableView.cellForRow(at: indexPath) as! ConverterCell
             guard let key = cell.valuteKey.text else { return }
             guard let index = Constants.converterKeys.firstIndex(of: key) else { return }
@@ -103,19 +106,10 @@ extension ConverterViewController: UITableViewDataSource {
         let identifier = ConverterCell().reusableCellIdentifier
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! ConverterCell
         let key = Constants.converterKeys[indexPath.row]
-        guard let value = valutes[key] else { return cell}
-        cell.setUpCell(valutes: value, key: key, textFieldChange: self.changedValue)
+        guard let valute = valutes[key] else { return cell}
+        cell.setUpCell(valutes: valute, key: key, textFieldChange: self.changedValue)
         
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = converterTableView.dequeueReusableHeaderFooterView(withIdentifier: "ConverterHeaderView") as! ConverterHeaderView
-        guard let valute = valutes["RUR"] else { return headerView }
-        headerView.setUpHeader(valutes: valute, key: "RUR", textFieldChange: self.changedValue)
-        
-        
-        return headerView
     }
 }
 
@@ -123,6 +117,21 @@ extension ConverterViewController {
     
     @objc func textDidChange(notification: NSNotification){
         let value = returnArrayOfKeysValues(ncDict: notification.userInfo)
+        self.changedValue = value[1]
+        
+        let converterKeys = Constants.converterKeys
+        var indexPathArray: [IndexPath] = []
+        
+        for (index, valute) in converterKeys.enumerated() {
+            switch valute {
+            case value[0]: break
+            default:
+                let indexPath = IndexPath(row: index, section: 0)
+                indexPathArray.append(indexPath)
+            }
+        }
+        
+        converterTableView.reloadRows(at: indexPathArray, with: .none)
         print(value)
     }
     

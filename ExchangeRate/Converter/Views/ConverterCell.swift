@@ -14,6 +14,7 @@ final class ConverterCell: UITableViewCell {
     
     // MARK: - Outlets
     
+    @IBOutlet weak var symbol: UILabel!
     @IBOutlet weak var valuteImage: UIImageView!
     @IBOutlet weak var valuteKey: UILabel!
     @IBOutlet weak var valuteName: UILabel!
@@ -24,13 +25,20 @@ final class ConverterCell: UITableViewCell {
     }
     
     var valuteValueStatic: Double?
+    var valuteNominal: Double?
+    var changedValue: String?
     
     // MARK: - Methods
     
     func setUpCell (valutes: Valutes, key: String, textFieldChange: String?) {
         
         self.valuteValueStatic = Double(valutes.currencyValueString)
+        self.valuteNominal = Double(valutes.nominalString)
         
+        let changedValue = returnRightValue(valute: valutes, valueString: textFieldChange)
+        self.changedValue = changedValue
+        
+        symbol.text = Constants.sybmols[key] ?? ""
         valuteKey.text = key
         valuteName.text = valutes.name
         valuteImage.image = UIImage(named: key)
@@ -38,8 +46,8 @@ final class ConverterCell: UITableViewCell {
         valuteImage.layer.borderWidth = 0.2
         valuteImage.layer.borderColor = CGColor(gray: 0.1, alpha: 1)
         
-        valuteValue.text = textFieldChange ?? String(0)
-        valuteValue.placeholder = textFieldChange ?? String(0)
+        valuteValue.text = changedValue
+        valuteValue.placeholder = changedValue
         valuteValue.keyboardType = .decimalPad
         valuteValue.clearsOnBeginEditing = true
         valuteValue.addDoneButtonToKeyboard()
@@ -56,7 +64,12 @@ extension ConverterCell: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField.text == "" {
             self.valuteValue.text = "0"
+            self.valuteValue.placeholder = "0"
         }
+        
+        
+        
+        
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -69,15 +82,34 @@ extension ConverterCell: UITextFieldDelegate {
         } else {
             text += string
         }
-        guard text != "" else { return true }
+        guard text != "" else {
+            self.valuteValue.text = "0"
+            text = "0"
+            return true
+        }
         guard let value = self.valuteValueStatic else { return true }
+        guard let valuteNominal = self.valuteNominal else { return true }
         
-        let textString =  String((Double(text) ?? 0) * value)
+        let textString =  String((Double(text) ?? 0) * value / valuteNominal)
         
         let userInfo = [key : textString]
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "textDidChange"), object: nil, userInfo: userInfo as [AnyHashable : Any])
         
         return true
+    }
+}
+
+extension ConverterCell {
+    func returnRightValue (valute: Valutes, valueString value: String?) -> String {
+        let valueDouble = Double(value ?? "0")!
+        let currencyValueDouble = Double(valute.currencyValueString) ?? 1
+        let valuteNominal = Double(valute.nominalString) ?? 1
+        let result = valueDouble / currencyValueDouble * valuteNominal
+        var resultStrig: String {
+            return String(format: "%.2f", result)
+        }
+        
+        return resultStrig
     }
 }

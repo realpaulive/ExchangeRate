@@ -106,6 +106,7 @@ extension CurrencySheetViewController {
         self.dailyChangeValue.text = valute.dailyChangeValueString
         self.dailyChangeValue.textColor = UIColor(named: valute.dailyChangeColor)
         self.lastUpdate.text = lastUpdateString
+        self.currencyDescription.text = Constants.texts[key]
     }
     
     func addToFavoriteButtonPressed(favoritesContainsValute: Bool) {

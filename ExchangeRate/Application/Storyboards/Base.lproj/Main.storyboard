@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MYO-sp-ciN">
-                                <rect key="frame" x="0.0" y="143" width="390" height="701"/>
+                                <rect key="frame" x="0.0" y="91" width="390" height="753"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vkG-Qa-tGE">
                                     <size key="itemSize" width="389" height="58"/>
@@ -198,7 +198,7 @@
                                 </userDefinedRuntimeAttributes>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0CS-GI-u68">
-                                <rect key="frame" x="96.000000000000014" y="435" width="198.33333333333337" height="34.333333333333314"/>
+                                <rect key="frame" x="96.000000000000014" y="409" width="198.33333333333337" height="34.333333333333314"/>
                                 <color key="tintColor" systemColor="systemPinkColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" imagePlacement="trailing" title="Добавить валюты" imagePadding="8" titleAlignment="leading">
@@ -325,10 +325,13 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 фунт стерлингов Соединенного королевства" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VGM-sU-Bf5">
-                                                    <rect key="frame" x="83.000000000000014" y="28" width="139.33333333333337" height="27"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="фунт стерлингов Соединенного королевства" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VGM-sU-Bf5">
+                                                    <rect key="frame" x="83" y="28" width="70" height="27"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="70" id="uyA-aO-F9d"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
@@ -344,12 +347,8 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" text="1000" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6KZ-xn-aBw">
-                                                    <rect key="frame" x="230.33333333333337" y="15" width="139.66666666666663" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="116" id="Vzc-EK-mxA"/>
-                                                        <constraint firstAttribute="height" constant="30" id="mZJ-DL-eJB"/>
-                                                    </constraints>
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" text="1000" textAlignment="right" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6KZ-xn-aBw">
+                                                    <rect key="frame" x="161" y="16" width="199" height="28"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                     <textInputTraits key="textInputTraits" smartInsertDeleteType="yes" smartQuotesType="yes"/>
                                                     <userDefinedRuntimeAttributes>
@@ -359,19 +358,35 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="₽" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZR-y1-4CU">
+                                                    <rect key="frame" x="364" y="21.666666666666668" width="9" height="17.000000000000004"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="skeletonCornerRadius">
+                                                            <real key="value" value="6"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="useFontLineHeight" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="linesCornerRadius">
+                                                            <integer key="value" value="6"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="6KZ-xn-aBw" secondAttribute="trailing" constant="20" symbolic="YES" id="7ev-9o-8Gl"/>
+                                                <constraint firstItem="XZR-y1-4CU" firstAttribute="centerY" secondItem="6KZ-xn-aBw" secondAttribute="centerY" id="8ZX-Gc-KJM"/>
                                                 <constraint firstItem="FtF-Oe-idH" firstAttribute="top" secondItem="hZr-fq-zA7" secondAttribute="top" constant="5" id="9K0-Pa-toU"/>
                                                 <constraint firstItem="VGM-sU-Bf5" firstAttribute="leading" secondItem="HBA-lc-tic" secondAttribute="trailing" constant="13" id="Agl-ty-BDE"/>
+                                                <constraint firstAttribute="trailing" secondItem="6KZ-xn-aBw" secondAttribute="trailing" constant="30" id="DPK-VQ-E2k"/>
+                                                <constraint firstItem="6KZ-xn-aBw" firstAttribute="leading" secondItem="VGM-sU-Bf5" secondAttribute="trailing" constant="8" symbolic="YES" id="J6O-59-pfU"/>
                                                 <constraint firstAttribute="bottom" secondItem="HBA-lc-tic" secondAttribute="bottom" constant="5" id="MBE-mU-aEj"/>
                                                 <constraint firstAttribute="bottom" secondItem="VGM-sU-Bf5" secondAttribute="bottom" constant="5" id="NkT-5y-rqH"/>
                                                 <constraint firstItem="VGM-sU-Bf5" firstAttribute="top" secondItem="FtF-Oe-idH" secondAttribute="bottom" constant="2" id="RDn-IA-Jkv"/>
-                                                <constraint firstItem="6KZ-xn-aBw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FtF-Oe-idH" secondAttribute="trailing" constant="8" symbolic="YES" id="SDd-WY-HgO"/>
+                                                <constraint firstItem="XZR-y1-4CU" firstAttribute="leading" secondItem="6KZ-xn-aBw" secondAttribute="trailing" constant="4" id="Rw0-vk-BXw"/>
                                                 <constraint firstItem="HBA-lc-tic" firstAttribute="top" secondItem="hZr-fq-zA7" secondAttribute="top" constant="5" id="VDr-kG-kIG"/>
                                                 <constraint firstItem="VGM-sU-Bf5" firstAttribute="top" secondItem="FtF-Oe-idH" secondAttribute="bottom" constant="2" id="W8G-m5-FFV"/>
                                                 <constraint firstItem="FtF-Oe-idH" firstAttribute="leading" secondItem="HBA-lc-tic" secondAttribute="trailing" constant="13" id="b4f-AX-Hfm"/>
-                                                <constraint firstItem="6KZ-xn-aBw" firstAttribute="leading" secondItem="VGM-sU-Bf5" secondAttribute="trailing" constant="8" symbolic="YES" id="kZs-qH-Our"/>
                                                 <constraint firstItem="HBA-lc-tic" firstAttribute="leading" secondItem="hZr-fq-zA7" secondAttribute="leading" constant="20" symbolic="YES" id="lyV-sy-3cN"/>
                                                 <constraint firstItem="6KZ-xn-aBw" firstAttribute="centerY" secondItem="hZr-fq-zA7" secondAttribute="centerY" id="tGg-Po-tiH"/>
                                                 <constraint firstItem="HBA-lc-tic" firstAttribute="centerY" secondItem="hZr-fq-zA7" secondAttribute="centerY" id="vdS-ED-jqj"/>
@@ -384,6 +399,7 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <outlet property="symbol" destination="XZR-y1-4CU" id="Q7T-UP-agu"/>
                                             <outlet property="valuteImage" destination="HBA-lc-tic" id="eya-Sk-aAP"/>
                                             <outlet property="valuteKey" destination="FtF-Oe-idH" id="6p8-6B-pqG"/>
                                             <outlet property="valuteName" destination="VGM-sU-Bf5" id="iyT-6f-qgf"/>
@@ -707,7 +723,7 @@
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sl7-SH-WU2">
                                 <rect key="frame" x="16" y="264.33333333333326" width="358" height="268.66666666666674"/>
-                                <string key="text">Фунт сте́рлингов (также фунт стерлингов соединенного королевства, британский фунт; англ. Pound sterling, Pound, British pound) — денежная единица Соединённого Королевства Великобритании и Северной Ирландии (Великобритании), одна из основных резервных валют мира. Фунт стерлингов состоит из 100 пенсов (ед. ч. пенни). Буквенный Код в стандарте ISO 4217 — GBP (от англ. Great Britain Pound), цифровой — 826; Официальный символ — £ (от лат. Libra — либра, эквивалентная фунту). По состоянию на апрель 2019 года, Фунт стерлингов является четвертой наиболее торгуемой валютой в мире и также в межбанковских расчётах[2].</string>
+                                <mutableString key="text">Фунт сте́рлингов (также фунт стерлингов соединенного королевства, британский фунт; англ. Pound sterling, Pound, British pound) — денежная единица Соединённого Королевства Великобритании и Северной Ирландии (Великобритании), одна из основных резервных валют мира. Фунт стерлингов состоит из 100 пенсов (ед. ч. пенни). Буквенный Код в стандарте ISO 4217 — GBP (от англ. Great Britain Pound), цифровой — 826; Официальный символ — £ (от лат. Libra — либра, эквивалентная фунту). По состоянию на апрель 2019 года, Фунт стерлингов является четвертой наиболее торгуемой валютой в мире и также в межбанковских расчётах[2].</mutableString>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
