@@ -17,11 +17,13 @@ Whats used:
 - Alamofire GET request
 - JSON Parsing & Decoding
 - UserDefaults saves favorite currencies
-- NotificationCenter for realtime convering
+- NotificationCenter for realtime convering & update UI when adding new valutes
+
+## UI in motion:
+![ezgif com-optimize](https://user-images.githubusercontent.com/70806069/223407212-ba76dff3-a019-432a-b215-64dbadb82880.gif)
 
 
-
-## This is how the UI looks:
+## UI Details:
 
 ### Favorites 
 ![Favorites](https://user-images.githubusercontent.com/70806069/223395387-86901199-d1c7-46a9-9286-cb30d51b3dd7.png)
@@ -32,5 +34,3 @@ Whats used:
 ### Conveter
 ![Converter](https://user-images.githubusercontent.com/70806069/223395377-b8a27aed-024a-4a66-b84d-c10c2c783f05.png)
 
-## UI in motion:
-![ezgif com-optimize](https://user-images.githubusercontent.com/70806069/223407212-ba76dff3-a019-432a-b215-64dbadb82880.gif)
