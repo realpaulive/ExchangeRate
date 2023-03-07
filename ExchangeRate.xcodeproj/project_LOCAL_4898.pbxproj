@@ -17,19 +17,12 @@
 		7144C81F29AE6CF2001CE277 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144C81E29AE6CF2001CE277 /* UITextFieldExtension.swift */; };
 		7146E6D22986C6B60030B397 /* ValutesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7146E6D12986C6B60030B397 /* ValutesListViewController.swift */; };
 		7146E6DF2986CD750030B397 /* TinyValutesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7146E6DE2986CD750030B397 /* TinyValutesCell.swift */; };
-<<<<<<< HEAD
-		714B6166299539F600FF57BE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 714B6165299539F600FF57BE /* Alamofire */; };
-=======
 		714B616B29953ABA00FF57BE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 714B616A29953ABA00FF57BE /* Alamofire */; };
-<<<<<<< HEAD
 		7156620929ACA4D8006B9C25 /* SkeletonViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7156620829ACA4D8006B9C25 /* SkeletonViewExtensions.swift */; };
 		7156620B29ACF768006B9C25 /* TimeStamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7156620A29ACF767006B9C25 /* TimeStamp.swift */; };
 		7156620D29AD3372006B9C25 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7156620C29AD3372006B9C25 /* SectionHeader.swift */; };
 		7168ABEF29B101090007F288 /* ConverterCellExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7168ABEE29B101090007F288 /* ConverterCellExtensions.swift */; };
 		7168ABF129B10D050007F288 /* ConverterVCExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7168ABF029B10D050007F288 /* ConverterVCExtensions.swift */; };
-=======
->>>>>>> development
->>>>>>> origin/main
 		716AE5E92943AC2300D656C5 /* Valutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716AE5E82943AC2300D656C5 /* Valutes.swift */; };
 		716AE5EF2943DCAB00D656C5 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716AE5EE2943DCAB00D656C5 /* Response.swift */; };
 		716AE5F22943F26E00D656C5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716AE5F12943F26E00D656C5 /* Constants.swift */; };
@@ -95,15 +88,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
-				714B6166299539F600FF57BE /* Alamofire in Frameworks */,
-=======
 				714B616B29953ABA00FF57BE /* Alamofire in Frameworks */,
-<<<<<<< HEAD
 				71DE6C34299E842A0030C07D /* Pods_ExchangeRate.framework in Frameworks */,
-=======
->>>>>>> development
->>>>>>> origin/main
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,11 +382,7 @@
 			);
 			name = ExchangeRate;
 			packageProductDependencies = (
-<<<<<<< HEAD
-				714B6165299539F600FF57BE /* Alamofire */,
-=======
 				714B616A29953ABA00FF57BE /* Alamofire */,
->>>>>>> development
 			);
 			productName = ExchangeRate;
 			productReference = 71B23CA2294298FB00DC1888 /* ExchangeRate.app */;
@@ -431,11 +413,7 @@
 			);
 			mainGroup = 71B23C99294298FB00DC1888;
 			packageReferences = (
-<<<<<<< HEAD
-				714B6164299539F600FF57BE /* XCRemoteSwiftPackageReference "Alamofire" */,
-=======
 				714B616929953ABA00FF57BE /* XCRemoteSwiftPackageReference "Alamofire" */,
->>>>>>> development
 			);
 			productRefGroup = 71B23CA3294298FB00DC1888 /* Products */;
 			projectDirPath = "";
@@ -768,35 +746,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-<<<<<<< HEAD
-		714B6164299539F600FF57BE /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-=======
 		714B616929953ABA00FF57BE /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
 				branch = master;
 				kind = branch;
->>>>>>> development
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-<<<<<<< HEAD
-		714B6165299539F600FF57BE /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 714B6164299539F600FF57BE /* XCRemoteSwiftPackageReference "Alamofire" */;
-=======
 		714B616A29953ABA00FF57BE /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 714B616929953ABA00FF57BE /* XCRemoteSwiftPackageReference "Alamofire" */;
->>>>>>> development
 			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
