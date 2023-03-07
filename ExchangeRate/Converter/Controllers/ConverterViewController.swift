@@ -6,13 +6,16 @@
 //
 
 import UIKit
+import SkeletonView
 
-class ConverterViewController: UIViewController {
+final class ConverterViewController: UIViewController {
     
     // MARK: - Values
     
     var valutes = [String : Valutes]()
-
+    var changedValue: String?
+    
+    
     // MARK: - Outlets
     
     @IBOutlet weak var converterTableView: UITableView! {
@@ -27,55 +30,38 @@ class ConverterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         NotificationCenter.default.addObserver(self, selector: #selector(reloadConverter), name: NSNotification.Name(rawValue: "reloadConverter"), object: nil)
         
-        FetchRequest.currencyRequest { valutes in
-            self.valutes = valutes
+        NotificationCenter.default.addObserver(self, selector: #selector(textDidChange), name: NSNotification.Name(rawValue: "textDidChange"), object: nil)
+        
+        
+        
+        converterTableView.isSkeletonable = true
+        converterTableView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: UIColor(named: "Skeletonable")!), transition: .crossDissolve(0.4))
+        
+        
+        FetchRequest.shared.currencyRequest { [unowned self] valutes, _ in
             DispatchQueue.main.async {
+                self.valutes = valutes
+                self.valutes["RUR"] = Constants.ruble
+                self.converterTableView.hideSkeleton(transition: .crossDissolve(0.4))
                 self.converterTableView.reloadData()
             }
         }
-
+        
     }
     
     @objc func reloadConverter(notification: NSNotification){
         self.converterTableView.reloadData()
     }
     
+    
     // MARK: - Actions
     
     @IBAction func addNewValutesAction(_ sender: Any) {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ValutesListViewController") as! ValutesListViewController
-        vc.isFromConverter = true
-        if let sheet = vc.sheetPresentationController {
-            sheet.detents = [.medium(), .large()]
-            sheet.preferredCornerRadius = 22.0
-            sheet.prefersGrabberVisible = false
-        }
+        let vc = ValutesListViewController().showYourself(from: self)
         self.present(vc, animated: true)
     }
     
-}
-
-// MARK: - Extensions: TableViewDelegates
-
-extension ConverterViewController: UITableViewDelegate {
-    
-}
-
-// MARK: - Extensions: TableViewDataSourses
-
-extension ConverterViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Constants.converterKeys.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ConverterCell", for: indexPath) as! ConverterCell
-        let key = Constants.converterKeys[indexPath.row]
-        guard let value = valutes[key] else { return cell}
-        cell.setUpCell(valutes: value, key: key)
-        
-        return cell
-    }
 }
