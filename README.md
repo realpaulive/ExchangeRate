@@ -8,7 +8,6 @@ Whats used:
 
 + UIKit (Interface Builder)
     + Table & Collection Views
-    + Dragging
     + Refresh Controller
     + Search Bar
     + Sheet Views
@@ -18,7 +17,20 @@ Whats used:
 - Alamofire GET request
 - JSON Parsing & Decoding
 - UserDefaults saves favorite currencies
+- NotificationCenter for realtime convering
+
+
 
 ## This is how the UI looks:
 
-![1](https://user-images.githubusercontent.com/70806069/219720235-4391c002-4cd6-493c-9368-56c78c843743.png)![2](https://user-images.githubusercontent.com/70806069/219721158-eabb7c24-8c4f-445a-8640-8378d96f6547.png) ![3](https://user-images.githubusercontent.com/70806069/219720243-f446b410-3cf6-4ef3-9203-b87f6c2c4a73.png) ![4](https://user-images.githubusercontent.com/70806069/219720248-201c7973-ced7-49ab-b559-b9adbb3598fb.png) ![5](https://user-images.githubusercontent.com/70806069/219720254-cc4ea8e6-dc65-46fb-abc8-4cdd5726a11f.png)
+### Favorites 
+![Favorites](https://user-images.githubusercontent.com/70806069/223395387-86901199-d1c7-46a9-9286-cb30d51b3dd7.png)
+
+### All currencies
+![Currencies](https://user-images.githubusercontent.com/70806069/223395383-f6ab506b-fd36-4f4c-9353-e81b13c287c8.png)
+
+### Conveter
+![Converter](https://user-images.githubusercontent.com/70806069/223395377-b8a27aed-024a-4a66-b84d-c10c2c783f05.png)
+
+## UI in motion:
+![ezgif com-optimize](https://user-images.githubusercontent.com/70806069/223407212-ba76dff3-a019-432a-b215-64dbadb82880.gif)
