@@ -21,6 +21,8 @@
 		7156620929ACA4D8006B9C25 /* SkeletonViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7156620829ACA4D8006B9C25 /* SkeletonViewExtensions.swift */; };
 		7156620B29ACF768006B9C25 /* TimeStamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7156620A29ACF767006B9C25 /* TimeStamp.swift */; };
 		7156620D29AD3372006B9C25 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7156620C29AD3372006B9C25 /* SectionHeader.swift */; };
+		7168ABEF29B101090007F288 /* ConverterCellExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7168ABEE29B101090007F288 /* ConverterCellExtensions.swift */; };
+		7168ABF129B10D050007F288 /* ConverterVCExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7168ABF029B10D050007F288 /* ConverterVCExtensions.swift */; };
 		716AE5E92943AC2300D656C5 /* Valutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716AE5E82943AC2300D656C5 /* Valutes.swift */; };
 		716AE5EF2943DCAB00D656C5 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716AE5EE2943DCAB00D656C5 /* Response.swift */; };
 		716AE5F22943F26E00D656C5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716AE5F12943F26E00D656C5 /* Constants.swift */; };
@@ -58,6 +60,8 @@
 		7156620829ACA4D8006B9C25 /* SkeletonViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonViewExtensions.swift; sourceTree = "<group>"; };
 		7156620A29ACF767006B9C25 /* TimeStamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStamp.swift; sourceTree = "<group>"; };
 		7156620C29AD3372006B9C25 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		7168ABEE29B101090007F288 /* ConverterCellExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterCellExtensions.swift; sourceTree = "<group>"; };
+		7168ABF029B10D050007F288 /* ConverterVCExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterVCExtensions.swift; sourceTree = "<group>"; };
 		716AE5E82943AC2300D656C5 /* Valutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Valutes.swift; sourceTree = "<group>"; };
 		716AE5EE2943DCAB00D656C5 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		716AE5F12943F26E00D656C5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -321,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				71C9FAA12942B46F00DF203C /* ConverterViewController.swift */,
+				7168ABF029B10D050007F288 /* ConverterVCExtensions.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -329,6 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				71BA67762987ED30006D40A6 /* ConverterCell.swift */,
+				7168ABEE29B101090007F288 /* ConverterCellExtensions.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -486,6 +492,7 @@
 				71B23CB0294298FB00DC1888 /* ExchangeRate.xcdatamodeld in Sources */,
 				7146E6DF2986CD750030B397 /* TinyValutesCell.swift in Sources */,
 				716AE5EF2943DCAB00D656C5 /* Response.swift in Sources */,
+				7168ABEF29B101090007F288 /* ConverterCellExtensions.swift in Sources */,
 				7144C81F29AE6CF2001CE277 /* UITextFieldExtension.swift in Sources */,
 				71B20A352944D222000C4F7F /* CurrencyTableViewCell.swift in Sources */,
 				7156620D29AD3372006B9C25 /* SectionHeader.swift in Sources */,
@@ -501,6 +508,7 @@
 				7144C81829AE4655001CE277 /* CurrenciesRefreshControlExtensions.swift in Sources */,
 				718AE02729453A5C009C41FA /* CurrencySheetVC.swift in Sources */,
 				71B23CA8294298FB00DC1888 /* SceneDelegate.swift in Sources */,
+				7168ABF129B10D050007F288 /* ConverterVCExtensions.swift in Sources */,
 				7156620929ACA4D8006B9C25 /* SkeletonViewExtensions.swift in Sources */,
 				71C9FAA22942B46F00DF203C /* ConverterViewController.swift in Sources */,
 				7144C81D29AE492F001CE277 /* ValutesListTableViewExtensions.swift in Sources */,

@@ -16,11 +16,15 @@ struct Constants {
     
     static var favoritesKeys = ["USD", "EUR", "TRY", "GEL"] {
         didSet {
-            Constants.save(favoritesKeys)
+            Constants.save(valuteKeys: favoritesKeys, userDefaultsKey: userDefaultsFavoriteKey)
         }
     }
     
-    static var converterKeys = ["RUR", "USD", "EUR"]
+    static var converterKeys = ["RUR", "USD", "EUR"] {
+        didSet {
+//            Constants.save(valuteKeys: converterKeys, userDefaultsKey: userDefaultsConverterKey)
+        }
+    }
     
     static let ruble = Valutes(currentRateData: Valute(id: "001", numCode: "001", charCode: "None", nominal: 1, name: "Российский рубль", value: 1, previous: 1))
     
@@ -31,14 +35,16 @@ struct Constants {
 
 extension Constants {
     
-    static let userDefaultsKey = "favoritesKeys"
+    static let userDefaultsFavoriteKey = "favoritesKeys"
+    static let userDefaultsConverterKey = "converterKeys"
     
-    static func save(_ favorites: [String]) {
-        UserDefaults.standard.set(favorites, forKey: Constants.userDefaultsKey)
+    static func save(valuteKeys: [String], userDefaultsKey: String) {
+        UserDefaults.standard.set(valuteKeys, forKey: userDefaultsKey)
     }
     
-    static func loadFavorites() {
-        Constants.favoritesKeys = UserDefaults.standard.stringArray(forKey: Constants.userDefaultsKey) ?? []
+    static func load() {
+        Constants.favoritesKeys = UserDefaults.standard.stringArray(forKey: Constants.userDefaultsFavoriteKey) ?? []
+//        Constants.converterKeys = UserDefaults.standard.stringArray(forKey: Constants.userDefaultsConverterKey) ?? []
     }
     
 }

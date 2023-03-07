@@ -8,9 +8,12 @@ import UIKit
 
 final class ConverterCell: UITableViewCell {
     
-    // MARK: - Identifier
+    // MARK: - Values
     
     let reusableCellIdentifier = "ConverterCell"
+    var valuteValueStatic: Double?
+    var valuteNominal: Double?
+    var changedValue: String?
     
     // MARK: - Outlets
     
@@ -23,10 +26,6 @@ final class ConverterCell: UITableViewCell {
             valuteValue.delegate = self
         }
     }
-    
-    var valuteValueStatic: Double?
-    var valuteNominal: Double?
-    var changedValue: String?
     
     // MARK: - Methods
     
@@ -53,63 +52,9 @@ final class ConverterCell: UITableViewCell {
         valuteValue.addDoneButtonToKeyboard()
     }
     
+    // MARK: - FirstResponder
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         valuteValue.becomeFirstResponder()
-    }
-}
-
-extension ConverterCell: UITextFieldDelegate {
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField.text == "" {
-            self.valuteValue.text = "0"
-            self.valuteValue.placeholder = "0"
-        }
-        
-        
-        
-        
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        let key = self.valuteKey.text
-        var text = textField.text ?? ""
-        
-        if string == "" {
-            text.removeLast()
-        } else {
-            text += string
-        }
-        guard text != "" else {
-            self.valuteValue.text = "0"
-            text = "0"
-            return true
-        }
-        guard let value = self.valuteValueStatic else { return true }
-        guard let valuteNominal = self.valuteNominal else { return true }
-        
-        let textString =  String((Double(text) ?? 0) * value / valuteNominal)
-        
-        let userInfo = [key : textString]
-        
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "textDidChange"), object: nil, userInfo: userInfo as [AnyHashable : Any])
-        
-        return true
-    }
-}
-
-extension ConverterCell {
-    func returnRightValue (valute: Valutes, valueString value: String?) -> String {
-        let valueDouble = Double(value ?? "0")!
-        let currencyValueDouble = Double(valute.currencyValueString) ?? 1
-        let valuteNominal = Double(valute.nominalString) ?? 1
-        let result = valueDouble / currencyValueDouble * valuteNominal
-        var resultStrig: String {
-            return String(format: "%.2f", result)
-        }
-        
-        return resultStrig
     }
 }

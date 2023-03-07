@@ -358,7 +358,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="₽" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZR-y1-4CU">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="₽" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZR-y1-4CU">
                                                     <rect key="frame" x="364" y="21.666666666666668" width="9" height="17.000000000000004"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="highlightedColor"/>
@@ -723,7 +723,7 @@
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sl7-SH-WU2">
                                 <rect key="frame" x="16" y="264.33333333333326" width="358" height="268.66666666666674"/>
-                                <mutableString key="text">Фунт сте́рлингов (также фунт стерлингов соединенного королевства, британский фунт; англ. Pound sterling, Pound, British pound) — денежная единица Соединённого Королевства Великобритании и Северной Ирландии (Великобритании), одна из основных резервных валют мира. Фунт стерлингов состоит из 100 пенсов (ед. ч. пенни). Буквенный Код в стандарте ISO 4217 — GBP (от англ. Great Britain Pound), цифровой — 826; Официальный символ — £ (от лат. Libra — либра, эквивалентная фунту). По состоянию на апрель 2019 года, Фунт стерлингов является четвертой наиболее торгуемой валютой в мире и также в межбанковских расчётах[2].</mutableString>
+                                <string key="text">Фунт сте́рлингов (также фунт стерлингов соединенного королевства, британский фунт; англ. Pound sterling, Pound, British pound) — денежная единица Соединённого Королевства Великобритании и Северной Ирландии (Великобритании), одна из основных резервных валют мира. Фунт стерлингов состоит из 100 пенсов (ед. ч. пенни). Буквенный Код в стандарте ISO 4217 — GBP (от англ. Great Britain Pound), цифровой — 826; Официальный символ — £ (от лат. Libra — либра, эквивалентная фунту). По состоянию на апрель 2019 года, Фунт стерлингов является четвертой наиболее торгуемой валютой в мире и также в межбанковских расчётах[2].</string>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
